@@ -1,10 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Books = sequelize.define("Books", {
-        /*book_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },*/
+        user: DataTypes.STRING,
         title: DataTypes.STRING,
         author: DataTypes.STRING,
         genre: DataTypes.STRING,
