@@ -3,7 +3,6 @@ module.exports = function(sequelize, DataTypes) {
         user: DataTypes.STRING,
         book_id: DataTypes.INTEGER,
         rating: DataTypes.INTEGER,
-        //time_stamp:  {type: Sequelize.DATE, defaultValue: Sequelize.NOW },
         likes: DataTypes.INTEGER
     });
     return Recommendations;
