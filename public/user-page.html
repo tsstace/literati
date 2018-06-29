@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="903936962771-3vinle24kgtgcnak5q06el1as4afutfg.apps.googleusercontent.com">
+    <title>User Page</title>
+    <!-- <script src="/app/js/main.js"></script> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- <link rel="stylesheet" href="/app/css/landingpage.css"> -->
+
+    <style>
+        .body {
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-position: cover;
+            background-size: 100%;
+        }
+
+        .welcome {
+            margin-left: 500px;
+            margin-top: 200px;
+        }
+
+        #data {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="welcome">
+        <h3> Welcome to </h3>
+        <h1>LITERATI</h1>
+        <h4>Use your Google Account to Sign-In!</h4>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+
+    <div class="row" id="data">
+            <div class="column" id="profilePic">
+                    <img id="pic" width="200" height="200" align="left" />
+            </div>
+            <div class="column" id="profileInfo">
+                    <P>Name</P>
+                    <p id="name"></p>
+                    <p>Email</p>
+                    <p id="email"></p>
+                    <button onclick="signOut()" class="btn btn-danger">Sign Out</button>
+            </div>
+          </div>
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            $(".welcome").css("display", "none");
+            $("#data").css("display", "block");
+            $("#pic").attr('src', profile.getImageUrl());
+            $("#name").text(profile.getName());
+            $("#email").text(profile.getEmail());
+        };
+
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                alert("You have been successfully signed out");
+
+                $(".welcome").css("display", "block");
+                $("#data").css("display", "none");
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
