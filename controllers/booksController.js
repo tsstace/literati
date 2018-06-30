@@ -22,26 +22,6 @@ router.post("/api/users", function(req, res) {
 //Create a method for grabbing books from a google API by title 
 var request = require("request");
 
-
-//Create a method to grab info about books from Google
-/*var options = { method: 'GET',
-  url: 'https://www.googleapis.com/books/v1/volumes',
-  qs: 
-   { q: title ,
-     key: 'AIzaSyA0mpVc-NF2jWunLV5arTusSUHdj53jcXY' },
-  headers: 
-   { 'Postman-Token': '506f7037-1ead-48eb-addf-b6aab257fb6f',
-     'Cache-Control': 'no-cache',
-     'Content-Type': 'application/json' },
-  body: { name: 'mothman' },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  console.log(body);
-});
-*/
 router.get("/book", function(req, res) {
     request('https://www.googleapis.com/books/v1/volumes?q=' + req.query.title + '&key=' + process.env.GOOGLE_APIKEY, function(err, gres, body) {
         res.json(JSON.parse(body));
