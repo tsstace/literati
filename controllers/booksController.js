@@ -1,3 +1,4 @@
+//+++++++++++++++++++++++++++++++++DEPENDENCIES++++++++++++++++++++++++++++++++++++++++++
 var express = require("express");
 
 var router = express.Router();
@@ -5,6 +6,7 @@ var router = express.Router();
 // Import the models to use its database functions.
 var db = require("../models");
 
+//Stash API key here...
 require("dotenv")
 
 //Create a method for pushing user info into database

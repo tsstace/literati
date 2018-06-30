@@ -109,7 +109,13 @@
             var title = $("#title").val();
             var author = $("#author").val();
             $.get("/book?title=" + title, function(data){
-                console.log(data);
+                console.log("Title: " + data.items[0].volumeInfo.title);
+                console.log("Author: " + data.items[0].volumeInfo.authors[0]);
+                console.log("Genre: " + data.items[0].volumeInfo.categories[0]);
+                console.log("Copyright Date: " + data.items[0].volumeInfo.publishedDate);
+                console.log("ISBN: " + data.items[0].volumeInfo.industryIdentifiers[0].identifier);
+                console.log("Cover Art: " + data.items[0].volumeInfo.imageLinks.thumbnail);
+                console.log("Synopsis: " + data.items[0].volumeInfo.description);
             });
         }
     </script>
