@@ -59,9 +59,24 @@
             </div>
           </div>
 
+          <div>
+            <h2>Find a Book</h2>
+            <h1>Enter the title and author to get started</h1>
+            <p>Title</p>
+            <input type="text" name="fname" id="title">
+            <p>Author</p>
+            <input type="text" name="fname" id="author">
+            <button onclick="findBook()">Search</button>
+          </div>
+
     <script>
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
+            var userInfo = {
+                profile_pic: profile.getImageUrl(),
+                user_name: profile.getName(),
+                email: profile.getEmail(),
+            }
             console.log(googleUser);
             $(".welcome").css("display", "none");
             $("#data").css("display", "block");
@@ -69,6 +84,9 @@
             $("#name").text(profile.getName());
             $("#email").text(profile.getEmail());
         
+            $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
+            $(console.log(result));
+        }});
             // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         // console.log("ID Token: " + id_token);
@@ -84,6 +102,14 @@
 
                 $(".welcome").css("display", "block");
                 $("#data").css("display", "none");
+            });
+        }
+
+        function findBook() {
+            var title = $("#title").val();
+            var author = $("#author").val();
+            $.get("/book?title=" + title, function(data){
+                console.log(data);
             });
         }
     </script>
