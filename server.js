@@ -1,6 +1,7 @@
 // *** Dependencies
 var express = require("express");
 var bodyParser = require('body-parser');
+
 var PORT = process.env.PORT || 3000;
 var app = express();
 require('dotenv').config();
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
+var db = require("./models");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -29,6 +31,7 @@ var routes = require("./controllers/booksController.js");
 
 // Routes
 require("./routes/landingpage-routes")(app);
+require("./routes/api-routes")(app);
 
 app.use(routes);
 
