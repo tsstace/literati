@@ -20,9 +20,24 @@ router.post("/api/users", function(req, res) {
       res.json(result)
     }).catch(function(result){
       res.json(result)
-    })
-  });
+  })
+});
 
+//Create a method for pushing book info into the books database
+router.post("/api/books", function(req, res){
+  console.log(req.body);
+    db.Books.create({
+        user: DataTypes.STRING,
+        title: DataTypes.STRING,
+        author: DataTypes.STRING,
+        genre: DataTypes.STRING,
+        copyright_date: DataTypes.DATE,
+        ISBN: DataTypes.STRING,
+        cover_art_url: DataTypes.STRING,
+        synopsis: DataTypes.STRING,
+        status: DataTypes.STRING
+    })
+})
 //Create a method for grabbing books from a google API by title 
 var request = require("request");
 

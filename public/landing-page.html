@@ -36,296 +36,7 @@
 
 
     <!-- Additional Style Sheet to Override Bootstrap -->
-    <link rel="stylesheet" href="../assets/css/landingpage.css">
-
-    <style>
-        body {
-            background: url("https://9fc6ff.medialib.edu.glogster.com/FgAsmBUeWdV5Xy9h66SK/media/5f/5f303373877e481411cfe5e97ee30ac140870858/blank-page.jpg");
-            background-repeat: no-repeat;
-            background-position: absolute;
-            background-size: cover;
-
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            color: #000000;
-            font-family: 'PT Serif', serif;
-
-        }
-
-        .pageName {
-            color: #fff;
-            font-size: 6rem;
-            text-shadow: 2px 2px 4px #000000;
-            width: 100%;
-            font-family: 'IM Fell English SC', serif;
-
-        }
-
-        .intro {
-            color: #fff;
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px #000000;
-            width: 100%;
-            font-family: 'IM Fell English SC', serif;
-        }
-
-        .intro2 {
-            color: #fff;
-            font-size: 2rem;
-            text-shadow: 2px 2px 4px #000000;
-            width: 100%;
-            font-family: 'IM Fell English SC', serif;
-        }
-
-        .welcome {
-            background: url("https://github.com/panoptic1/literati/blob/master/assets/images/mainbg.jpg?raw=true");
-            background-repeat: no-repeat;
-            background-position: absolute;
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-
-            position: fixed;
-            padding: 0;
-            margin: 0 auto;
-
-            top: 0;
-            left: 0;
-
-            display: table;
-            /* margin: 0 auto;*/
-            padding: 100px 0;
-        }
-
-        #bookBarSearchBtn {
-            display: inline-block;
-            box-shadow: 1px 1px 1px grey;
-            border: thin solid #888;
-            border-radius: 5px;
-            color: #444;
-            background: white;
-            white-space: nowrap;
-        }
-
-        #bookBarSearchBtn:hover {
-            cursor: pointer;
-            background: green;
-        }
-
-        #data {
-            display: none;
-        }
-
-        .form-control {
-            max-width: 80%;
-        }
-
-        #title {
-            width: 80% !important;
-        }
-
-        #profileText {
-            margin-left: 5px;
-        }
-
-        /* --------------- THIS IS FOR THE GOOGLE SIGN IN BUTTON ---------------- */
-
-        #customBtn {
-            display: inline-block;
-            box-shadow: 1px 1px 1px grey;
-            border: thin solid #888;
-            border-radius: 5px;
-            color: #444;
-            background: white;
-            white-space: nowrap;
-        }
-
-        #customBtn:hover {
-            cursor: pointer;
-        }
-
-        span.label {
-            font-family: serif;
-            font-weight: normal;
-        }
-
-        span.icon {
-            background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
-            display: inline-block;
-            vertical-align: middle;
-            width: 42px;
-            height: 42px;
-        }
-
-        span.buttonText {
-            display: inline-block;
-            vertical-align: middle;
-            padding-left: 42px;
-            padding-right: 42px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* --------------- THIS IS FOR THE NAV BAR ---------------- */
-
-        .navbar {
-            background-color: #800000;
-            font-family: 'PT Serif', serif;
-            min-height: 10px;
-        }
-
-        .navbar .navbar-brand {
-            color: #ffffff;
-        }
-
-        .navbar .navbar-brand:hover,
-        .navbar .navbar-brand:focus {
-            color: #c26a5f;
-        }
-
-        .navbar .navbar-text {
-            color: #ffffff;
-        }
-
-        .navbar .navbar-text a {
-            color: #c26a5f;
-        }
-
-        .navbar .navbar-text a:hover,
-        .navbar .navbar-text a:focus {
-            color: #c26a5f;
-        }
-
-        .navbar .navbar-nav .nav-link {
-            color: #ffffff;
-            border-radius: .25rem;
-            margin: 0 0.25em;
-        }
-
-        .navbar .navbar-nav .nav-link:not(.disabled):hover,
-        .navbar .navbar-nav .nav-link:not(.disabled):focus {
-            color: #c26a5f;
-        }
-
-        .navbar .navbar-nav .nav-item.active .nav-link,
-        .navbar .navbar-nav .nav-item.active .nav-link:hover,
-        .navbar .navbar-nav .nav-item.active .nav-link:focus,
-        .navbar .navbar-nav .nav-item.show .nav-link,
-        .navbar .navbar-nav .nav-item.show .nav-link:hover,
-        .navbar .navbar-nav .nav-item.show .nav-link:focus {
-            color: #c26a5f;
-            background-color: #ffffff;
-        }
-
-        .navbar .navbar-toggle {
-            border-color: #ffffff;
-        }
-
-        .navbar .navbar-toggle:hover,
-        .navbar .navbar-toggle:focus {
-            background-color: #ffffff;
-        }
-
-        .navbar .navbar-toggle .navbar-toggler-icon {
-            color: #ffffff;
-        }
-
-        .navbar .navbar-collapse,
-        .navbar .navbar-form {
-            border-color: #ffffff;
-        }
-
-        .navbar .navbar-link {
-            color: #ffffff;
-        }
-
-        .navbar .navbar-link:hover {
-            color: #c26a5f;
-        }
-
-        @media (max-width: 575px) {
-            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
-                color: #ffffff;
-            }
-            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-                color: #c26a5f;
-            }
-            .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
-                color: #c26a5f;
-                background-color: #ffffff;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
-                color: #ffffff;
-            }
-            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-                color: #c26a5f;
-            }
-            .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
-                color: #c26a5f;
-                background-color: #ffffff;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
-                color: #ffffff;
-            }
-            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-                color: #c26a5f;
-            }
-            .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
-                color: #c26a5f;
-                background-color: #ffffff;
-            }
-        }
-
-        @media (max-width: 1199px) {
-            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
-                color: #ffffff;
-            }
-            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-                color: #c26a5f;
-            }
-            .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
-                color: #c26a5f;
-                background-color: #ffffff;
-            }
-        }
-
-        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
-            color: #ffffff;
-        }
-
-        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
-        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
-            color: #c26a5f;
-        }
-
-        .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
-            color: #c26a5f;
-            background-color: #ffffff;
-        }
-
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: #000000;
-            color: #fff;
-            text-align: center;
-            font-family: 'PT Serif', serif;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
@@ -389,18 +100,15 @@
                 <p id="email"></p>
             </div>
         </div>
-
+        <!--Search Results will be dumped in the section below-->
+        <div class="col" id="book-search">
+            
+        </div>
+	
         <div class="col-xs-6" id="middle">
-<<<<<<< HEAD
 
             <input class="form-control mr-sm-2" id="title" type="text" placeholder="Find any book!" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
-=======
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" id="title" type="search" placeholder="Find a book!" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
-            </form>
->>>>>>> 1b9db7c4060aef6585bebf94c9f56688925b1653
             <hr>
             <!-- <p>live feed here</p>
             <div class="" id="indComment">
@@ -456,60 +164,48 @@
         <p> &copy; Copyright 2018 Pamela, Ryan & Stacy </p>
     </div>
 
+    <script src="js/logic.js" type="text/javascript"></script>
+
     <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            var userInfo = {
-                profile_pic: profile.getImageUrl(),
-                user_name: profile.getName(),
-                email: profile.getEmail(),
-            }
-            console.log(googleUser);
-            $(".welcome").css("display", "none");
-            $(".booksBG").css("display", "none");
-            $("#data").css("display", "block");
+    function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    var userInfo = {
+        profile_pic: profile.getImageUrl(),
+        user_name: profile.getName(),
+        email: profile.getEmail(),
+    }
+    //console.log(googleUser);
+    $(".welcome").css("display", "none");
+    $(".booksBG").css("display", "none");
+    $("#data").css("display", "block");
 
-            $("#pic").attr('src', profile.getImageUrl());
-            $("#name").text(profile.getName());
-            $("#email").text(profile.getEmail());
-        
-            $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
-            $(console.log(result));
-        }});
-            // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        // console.log("ID Token: " + id_token);
-        
-        };
+    $("#pic").attr('src', profile.getImageUrl());
+    $("#name").text(profile.getName());
+    $("#email").text(profile.getEmail());
+
+    $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
+    $(console.log(result));
+    }
+});
+    // The ID token you need to pass to your backend:
+var id_token = googleUser.getAuthResponse().id_token;
+// console.log("ID Token: " + id_token);
+
+};
 
 
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-                alert("You have been successfully signed out");
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+        alert("You have been successfully signed out");
 
-                $(".welcome").css("display", "block");
-                $("#data").css("display", "none");
-            });
-        }
+        $(".welcome").css("display", "block");
+        $("#data").css("display", "none");
+    });
+}
 
-        function findBook() {
-            var title = $("#title").val();
-            var author = $("#author").val();
-            $.get("/book?title=" + title, function(data){
-                console.log("Title: " + data.items[0].volumeInfo.title);
-                console.log("Author: " + data.items[0].volumeInfo.authors[0]);
-                console.log("Genre: " + data.items[0].volumeInfo.categories[0]);
-                console.log("Copyright Date: " + data.items[0].volumeInfo.publishedDate);
-                console.log("ISBN: " + data.items[0].volumeInfo.industryIdentifiers[0].identifier);
-                console.log("Cover Art: " + data.items[0].volumeInfo.imageLinks.thumbnail);
-                console.log("Synopsis: " + data.items[0].volumeInfo.description);
-            });
-        }
     </script>
-
-
 </body>
 
 </html>

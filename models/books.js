@@ -8,7 +8,9 @@ module.exports = function(sequelize, DataTypes) {
         ISBN: DataTypes.STRING,
         cover_art_url: DataTypes.STRING,
         synopsis: DataTypes.STRING,
-        status: DataTypes.STRING
+        status: {type: DataTypes.ENUM,
+                values: ['to read', 'currently reading', 'previously read']
+                }
     });
     return Books;
 }
