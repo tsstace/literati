@@ -38,10 +38,6 @@
     <!-- Additional Style Sheet to Override Bootstrap -->
     <link rel="stylesheet" href="assets/css/landingpage.css">
 
-    <style>
-        
-    </style>
-
 </head>
 
 <body>
@@ -106,51 +102,56 @@
         </div>
 
         <div class="col-xs-6" id="middle">
-
-                <input class="form-control mr-sm-2" id="title" type="search" placeholder="Find a book!" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
-            <hr>
-            <!-- LIVE FEED HERE -->
-                <div class="communityQuestionAndAnswer">
-                        <div class="communityQuestion">
-                            <span class="questionText">
-                        QUESTION TITLE APPEARS HERE
-                            </span>
-                        <span class="communityQuestionTimestamp">
-                            2 years ago
-                        </span>
-                        </div>
-
-                        <div class="communityAnswerBody">
-                        <div class="answererUserPic">
-                        <a class="leftAlignedImage userPhoto" href="#">
-                            <img alt="" src="#">PIC</a>
-                        </div>
-                        <div class="communityAnswerTextContainer">
-                        <span class="communityAnswererName">USER NAME APPEARS HERE</span>
-                        <span class="communityAnswerText" style="display: inline;">
-                            COMMENT APPEARS HERE
-                        </span>
-                        </div>
-                        </div>
-<!-- THIS IS THE DIV CONTAINER THE LIVE FEED -->
-                        <div class="col-md-12 blog-container"></div>
-
+            
+        <input class="form-control mr-sm-2" id="title" type="search" placeholder="Find a book!" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
+        <hr>
+        <!-- LIVE FEED HERE -->
+        <div class="communityQuestionAndAnswer">
+            <div class="communityQuestion">
+                <span class="questionText">
+                    QUESTION TITLE APPEARS HERE
+                </span>
+                <span class="communityQuestionTimestamp">
+                    2 years ago
+                </span>
             </div>
-            <hr>
+
+            <div class="communityAnswerBody">
+                <div class="answererUserPic">
+                    <a class="leftAlignedImage userPhoto" href="#">
+                        <img alt="" src="#">PIC</a>
+                </div>
+                <div class="communityAnswerTextContainer">
+                    <span class="communityAnswererName">USER NAME APPEARS HERE</span>
+                    <span class="communityAnswerText" style="display: inline;">
+                        COMMENT APPEARS HERE
+                    </span>
+                </div>
+            </div>
+            <!-- THIS IS THE DIV CONTAINER THE LIVE FEED -->
+            <div class="col-md-12 blog-container"></div>
+
         </div>
+        <hr>
+    </div>
 
-        <div class="col-xs-3" id="bookshelf">
-            <p>BOOKSHELF</p>
-<!-- After clicking TO READ, all books categorized as correspoding will appear -->
-            <p>To Read</p>
+    <div class="col-xs-3" id="bookshelf">
+        <p>BOOKSHELF</p>
+        <!-- After clicking TO READ, all books categorized as correspoding will appear -->
+        <p>To Read</p>
 
-<!-- After clicking CURRENTLY READ, all books categorized as correspoding will appear -->
-            <p>Currently Reading</p>
+        <!-- After clicking CURRENTLY READ, all books categorized as correspoding will appear -->
+        <p>Currently Reading</p>
 
-<!-- After clicking PREVIOUSLY READ, all books categorized as correspoding will appear -->
-            <p>Previously Read</p>
-        </div>
+        <!-- After clicking PREVIOUSLY READ, all books categorized as correspoding will appear -->
+        <p>Previously Read</p>
+    </div>
+    
+
+    <!--Search Results will be dumped in the section below-->
+    <div class="col" id="book-search">
+    </div>
 
     </div>
 
