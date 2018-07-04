@@ -17,7 +17,9 @@ router.post("/api/users", function(req, res) {
       user_name : req.body.user_name,
       email : req.body.email
     }).then(function(result){
-      console.log(result)
+      res.json(result)
+    }).catch(function(result){
+      res.json(result)
     })
   });
 
@@ -25,10 +27,19 @@ router.post("/api/users", function(req, res) {
 var request = require("request");
 
 router.get("/book", function(req, res) {
-    request('https://www.googleapis.com/books/v1/volumes?q=' + req.query.title + '&key=' + process.env.GOOGLE_APIKEY, function(err, gres, body) {
-        res.json(JSON.parse(body));
-    })
-  });
+  request('https://www.googleapis.com/books/v1/volumes?q=' + req.query.title + '&key=' + process.env.GOOGLE_APIKEY, function(err, gres, body) {
+      res.json(JSON.parse(body));
+  })
+});
+
+router.post("/api/books", function(req, res) {
+  console.log(req.body);
+  db.Books.create({
+
+  }).then(function(result){
+    console.log(result)
+  })
+});
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -41,16 +52,6 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/cats", function(req, res) {
-  recommendations.create([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
-});
 
 router.put("/api/cats/:id", function(req, res) {
   var condition = "id = " + req.params.id;

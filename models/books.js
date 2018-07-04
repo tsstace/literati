@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
         copyright_date: DataTypes.DATE,
         ISBN: DataTypes.STRING,
         cover_art_url: DataTypes.STRING,
-        synopsis: DataTypes.STRING
+        synopsis: DataTypes.STRING,
+        status: DataTypes.STRING
     });
     return Books;
 }
