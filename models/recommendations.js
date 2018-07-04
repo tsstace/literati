@@ -1,9 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var Recommendations = sequelize.define("Recommendations", {
         user: DataTypes.STRING,
-        book_id: DataTypes.INTEGER,
+        title: DataTypes.STRING,
+        author: DataTypes.STRING,
         rating: DataTypes.INTEGER,
-        likes: DataTypes.INTEGER
+        comment: DataTypes.STRING
     });
     return Recommendations;
 }
