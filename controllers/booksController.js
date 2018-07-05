@@ -11,7 +11,7 @@ require("dotenv")
 
 //Create a method for pushing user info into database
 router.post("/api/users", function(req, res) {
-    console.log("Req.body here=====>", req.body);
+    //console.log("Req.body here=====>", req.body);
     db.User.create({
       profile_pic : req.body.profile_pic, 
       user_name : req.body.user_name,
@@ -49,9 +49,17 @@ router.get("/book", function(req, res) {
 });
 
 router.post("/api/books", function(req, res) {
-  console.log(req.body);
+  console.log("Look here!", req.body);
   db.Books.create({
-
+    user_name : req.body.user_name,
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+    copyright_date: req.body.copyright_date,
+    ISBN: req.body.ISBN,
+    cover_art_url: req.body.cover,
+    synopsis: req.body.synopsis,
+    status: req.body.q1,
   }).then(function(result){
     console.log(result)
   })

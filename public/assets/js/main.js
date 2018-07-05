@@ -12,6 +12,7 @@ function onSignIn(googleUser) {
 
   $("#pic").attr('src', profile.getImageUrl());
   $("#name").text(profile.getName());
+  $("#name").attr("data-name", profile.getName());
   $("#email").text(profile.getEmail());
 
   $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
@@ -191,7 +192,7 @@ var $shelfBook = `<!-- Button trigger modal -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="banana-button">Save changes</button>
+                <button type="button" class="btn btn-primary shelf-button">Save changes</button>
               </div>
             </div>
           </div>
@@ -201,9 +202,23 @@ var $shelfBook = `<!-- Button trigger modal -->
 
 $(document).ready(function() {
   function shelfBook() {
-      console.log("Don't kill me.");
+    //Create an object variable for all of the info that we want to insert into the books table
+    var bookInfo = {
+      title: $(this).closest('.results').attr("data-title"),
+      author: $(this).closest('.results').attr("data-author"),
+      genre: $(this).closest('.results').attr("data-genre"),
+      copyright_date: $(this).closest('.results').attr("data-copyright"),
+      ISBN: $(this).closest('.results').attr("data-ISBN"),
+      cover_art_url: $(this).closest('.results').attr("data-cover"),
+      synopsis: $(this).closest('.results').attr("data-synopsis"),
+    }
+
+    console.log(bookInfo);
+    $.ajax({url: "/api/books", method: "POST", data: bookInfo, success: function(result){
+      $(console.log("Success!", result));
+    }});
   }
-  $('#banana-button').click(shelfBook);
+  $('body').on('click', '.shelf-button', shelfBook);
 });
 
 function recommendBook(){
