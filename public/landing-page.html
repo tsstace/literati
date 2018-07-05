@@ -49,22 +49,24 @@
         <div class="g-signin2" data-onsuccess="onSignIn" id="customBtn"></div>
     </div>
 
-
-    <div class="row" id="data">
-
-        <nav class="navbar navbar-expand-lg justify-content-between">
-            <a class="navbar-brand" href="#">LITERATI</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    <div class="CONTAINER-fluid" id="data">
+        <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark"> -->
+                <!-- <nav class="navbar navbar-expand-lg justify-content-between"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <img src="assets/images/logo2.png" id="logo" href="/">
+            <a class="navbar-brand" href="/" id="logoName">LITERATI</a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav navbar-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
+                <!-- <ul class="navbar-nav navbar-right"> -->
+                        <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
@@ -89,89 +91,77 @@
                 </ul>
             </div>
         </nav>
+        
 
+        <div class="row">
+            <div class="col-xs-5 col-md-3 col-lg-1 vcenter" id="profile">
+                <img id="pic" />
+                <div id="profileText">
+                    <P>Name</P>
+                    <p id="name"></p>
+                    <p>Email</p>
+                    <p id="email"></p>
+                </div>
+                <p>BOOKSHELF</p>
+                <!-- After clicking TO READ, all books categorized as correspoding will appear -->
+                <p>To Read</p>
 
-        <div class="col-xs-3" id="profile">
-            <img id="pic" width="200" height="200" />
-            <div id="profileText">
-                <P>Name</P>
-                <p id="name"></p>
-                <p>Email</p>
-                <p id="email"></p>
+                <!-- After clicking CURRENTLY READ, all books categorized as correspoding will appear -->
+                <p>Currently Reading</p>
+
+                <!-- After clicking PREVIOUSLY READ, all books categorized as correspoding will appear -->
+                <p>Previously Read</p>
             </div>
-        </div>
-        <!--Search Results will be dumped in the section below-->
-        <div class="col" id="book-search">
-            
-        </div>
-	
-        <div class="col-xs-6" id="middle">
-            
-        <input class="form-control mr-sm-2" id="title" type="search" placeholder="Find a book!" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
-        <hr>
-            <!-- LIVE FEED HERE -->
-                <div class="communityQuestionAndAnswer">
-                        <div class="communityQuestion">
-                            <span class="questionText">
-                        QUESTION TITLE APPEARS HERE  
-                            </span>
-                        <span class="communityQuestionTimestamp">
-                            2 years ago
-                        </span>
-                        </div>
 
-                        <div class="communityAnswerBody">
-                        <div class="answererUserPic">
-                        <a class="leftAlignedImage userPhoto" href="#">
-                            <img alt="" src="#">PIC</a>
-                        </div>
-                        <div class="communityAnswerTextContainer">
-                        <span class="communityAnswererName">USER NAME APPEARS HERE</span>
-                        <span class="communityAnswerText" style="display: inline;">
-                            COMMENT APPEARS HERE
-                        </span>
-                        </div>
-                        </div>
-<!-- THIS IS THE DIV CONTAINER THE LIVE FEED -->
-                        <div class="col-md-12 blog-container"></div>
+            <!----------------SECOND COLUMN ---------------->
+            <div class="col-xs-5 col-md-7 col-lg-9 vcenter" id="mainSecondCol">
 
-            </div>
-            <!-- THIS IS THE DIV CONTAINER THE LIVE FEED -->
-            <div class="col-md-12 blog-container"></div>
+                <!--Search Results will be dumped in the section below-->
+                <div class="col" id="book-search"></div>
+                <a href="bookrec.html" id="bookMatchLink">
+                    Not sure what to read? Take our quiz here to find the perfect book for you! </a>
+                <p>
+                    <input class="form-control" id="title" type="search" placeholder="Find a book!" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
+                        </p>
 
-        </div>
-        <hr>
-    </div>
+                    <hr>
 
-    <div class="col-xs-3" id="bookshelf">
+                    <!-- THIS IS THE DIV CONTAINER FEEDING THE LIVE FEED -->
+                    LIVE FEED HERE
+                    <div class="col" id="blog-container"></div>
+
+                </div>
+
+
+                <!-- <div class="col-xs-3" id="bookshelf">
         <p>BOOKSHELF</p>
-        <!-- After clicking TO READ, all books categorized as correspoding will appear -->
+        After clicking TO READ, all books categorized as correspoding will appear
         <p>To Read</p>
 
-        <!-- After clicking CURRENTLY READ, all books categorized as correspoding will appear -->
+        After clicking CURRENTLY READ, all books categorized as correspoding will appear
         <p>Currently Reading</p>
 
-        <!-- After clicking PREVIOUSLY READ, all books categorized as correspoding will appear -->
+        After clicking PREVIOUSLY READ, all books categorized as correspoding will appear
         <p>Previously Read</p>
-    </div>
-    
-
-    <!--Search Results will be dumped in the section below-->
-    <div class="col" id="book-search">
-    </div>
-
-    </div>
+    </div> -->
 
 
-    <div class="footer">
-        <p> &copy; Copyright 2018 Pamela, Ryan & Stacy </p>
-    </div>
+                <!--Search Results will be dumped in the section below-->
+                <div class=".col" id="book-search">
+                </div>
 
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/view.js"></script>
+            </div>
+        </div>
 
-    <!-- <script>
+
+        <div class="footer">
+            <p> &copy; Copyright 2018 Pamela, Ryan & Stacy </p>
+        </div>
+
+        <script src="assets/js/main.js"></script>
+
+        <!-- <script>
     function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var userInfo = {
@@ -183,11 +173,9 @@
     $(".welcome").css("display", "none");
     $(".booksBG").css("display", "none");
     $("#data").css("display", "block");
-
     $("#pic").attr('src', profile.getImageUrl());
     $("#name").text(profile.getName());
     $("#email").text(profile.getEmail());
-
     $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
     $(console.log(result));
     }
@@ -195,21 +183,16 @@
     // The ID token you need to pass to your backend:
 var id_token = googleUser.getAuthResponse().id_token;
 // console.log("ID Token: " + id_token);
-
 };
-
-
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
         alert("You have been successfully signed out");
-
         $(".welcome").css("display", "block");
         $("#data").css("display", "none");
     });
 }
-
     </script> -->
 </body>
 
