@@ -15,15 +15,16 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/landing-page.html"));
   });
 
-  // index route loads landing-page.html as homepage
-  app.get("/user", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/user-page.html"));
-  });
-
    // index route loads landing-page.html as homepage
    app.get("/bookresults", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/search-results.html"));
   });
+
+  // index route loads landing-page.html as homepage
+  app.get("/bookmatch", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/bookrec.html"));
+});
+  
 
 
 };
