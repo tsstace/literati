@@ -11,7 +11,7 @@ require("dotenv")
 
 //Create a method for pushing user info into database
 router.post("/api/users", function(req, res) {
-    console.log(req.body);
+    console.log("Req.body here=====>", req.body);
     db.User.create({
       profile_pic : req.body.profile_pic, 
       user_name : req.body.user_name,
@@ -24,20 +24,21 @@ router.post("/api/users", function(req, res) {
 });
 
 //Create a method for pushing book info into the books database
-router.post("/api/books", function(req, res){
+/*router.post("/api/books", function(req, res){
   console.log(req.body);
     db.Books.create({
-        user: DataTypes.STRING,
-        title: DataTypes.STRING,
-        author: DataTypes.STRING,
-        genre: DataTypes.STRING,
-        copyright_date: DataTypes.DATE,
-        ISBN: DataTypes.STRING,
-        cover_art_url: DataTypes.STRING,
-        synopsis: DataTypes.STRING,
-        status: DataTypes.STRING
+        user: req.body.user_name,
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.//???,
+        copyright_date: req.body.copyright_date,
+        ISBN: req.body.//???,
+        cover_art_url: req.body.//???,
+        synopsis: req.body.//???,
+        status: req.body.//???,
     })
-})
+})*/
+
 //Create a method for grabbing books from a google API by title 
 var request = require("request");
 
