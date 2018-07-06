@@ -1,10 +1,12 @@
+let email
+
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   var userInfo = {
       profile_pic: profile.getImageUrl(),
       user_name: profile.getName(),
       email: profile.getEmail(),
-      }
+  }
   console.log(googleUser);
   $(".welcome").css("display", "none");
   $(".booksBG").css("display", "none");
@@ -15,7 +17,8 @@ function onSignIn(googleUser) {
   $("#email").text(profile.getEmail());
 
   $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
-  $(console.log(result));
+  console.log(result);
+    email = result;
 }});
   // The ID token you need to pass to your backend:
 var id_token = googleUser.getAuthResponse().id_token;
@@ -171,17 +174,17 @@ var $shelfBook = `<!-- Button trigger modal -->
               <div class="modal-body">
                 
                             <p> <label for="body">Change the status of the book</label>
-                            <form id="q1" action="/books/create" method="POST">
+                            <form id="status" action="/books/create" method="POST">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" option value="1">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" value="to read">
                                     <label class="form-check-label" for="inlineRadio1">To Read</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" option value="2">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" value="currently reading">
                                     <label class="form-check-label" for="inlineRadio2">Currently Reading</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" option value="3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" value="previously reading">
                                     <label class="form-check-label" for="inlineRadio2">Previously Read</label>
                                 </div>
                             </form>
@@ -201,16 +204,23 @@ var $shelfBook = `<!-- Button trigger modal -->
 $(document).ready(function() {
   function shelfBook() {
     //Create an object variable for all of the info that we want to insert into the books table
+    var email=$("#email").text();
+    var user=$("#name").text();
+    var status = $('#status input:checked').val();
+
     var bookInfo = {
       title: $(this).closest('.results').attr("data-title"),
       author: $(this).closest('.results').attr("data-author"),
       genre: $(this).closest('.results').attr("data-genre"),
+      cover_art_url: $(this).closest('.results').attr("data-cover"),
       copyright_date: $(this).closest('.results').attr("data-copyright"),
       ISBN: $(this).closest('.results').attr("data-ISBN"),
-      cover_art_url: $(this).closest('.results').attr("data-cover"),
       synopsis: $(this).closest('.results').attr("data-synopsis"),
-      }
-
+      email: email,
+      user: user,
+      status: status,
+    }
+    
     console.log(bookInfo);
     $.ajax({url: "/api/books", method: "POST", data: bookInfo, success: function(result){
       $(console.log("Success!", result));
