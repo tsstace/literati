@@ -50,6 +50,23 @@ router.post("/api/books", function(req, res) {
   })
 });
 
+// POSTS comments into database
+router.post("/api/comments", function(req, res) {
+  console.log("Comment here!", req.user);
+  db.recommendations.create({
+    email : req.body.email,
+    user: req.body.user,
+    title: req.body.title,
+    author: req.body.author,
+    cover_art_url: req.body.cover_art_url,
+    status: req.body.status,
+    rating: req.body.rating,
+    comment: req.body.comment
+  }).then(function(result){
+    console.log(result)
+  })
+});
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   recommendations.all(function(data) {
