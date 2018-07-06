@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Books = sequelize.define("Books", {
+        user: DataTypes.STRING,
         email: DataTypes.STRING,
         title: DataTypes.STRING,
         author: DataTypes.STRING,
