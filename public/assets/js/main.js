@@ -1,3 +1,5 @@
+let email
+
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   var userInfo = {
@@ -16,7 +18,8 @@ function onSignIn(googleUser) {
   $("#email").text(profile.getEmail());
 
   $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
-  $(console.log(result));
+  console.log(result);
+    email = result;
 }});
   // The ID token you need to pass to your backend:
 var id_token = googleUser.getAuthResponse().id_token;
@@ -209,7 +212,6 @@ $(document).ready(function() {
       genre: $(this).closest('.results').attr("data-genre"),
       copyright_date: $(this).closest('.results').attr("data-copyright"),
       ISBN: $(this).closest('.results').attr("data-ISBN"),
-      cover_art_url: $(this).closest('.results').attr("data-cover"),
       synopsis: $(this).closest('.results').attr("data-synopsis"),
     }
 

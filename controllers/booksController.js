@@ -23,22 +23,6 @@ router.post("/api/users", function(req, res) {
   })
 });
 
-//Create a method for pushing book info into the books database
-/*router.post("/api/books", function(req, res){
-  console.log(req.body);
-    db.Books.create({
-        user: req.body.user_name,
-        title: req.body.title,
-        author: req.body.author,
-        genre: req.body.//???,
-        copyright_date: req.body.copyright_date,
-        ISBN: req.body.//???,
-        cover_art_url: req.body.//???,
-        synopsis: req.body.//???,
-        status: req.body.//???,
-    })
-})*/
-
 //Create a method for grabbing books from a google API by title 
 var request = require("request");
 
@@ -49,9 +33,9 @@ router.get("/book", function(req, res) {
 });
 
 router.post("/api/books", function(req, res) {
-  console.log("Look here!", req.body);
+  console.log("Look here!", req.user);
   db.Books.create({
-    user_name : req.body.user_name,
+    email : req.body.email,
     title: req.body.title,
     author: req.body.author,
     genre: req.body.genre,
