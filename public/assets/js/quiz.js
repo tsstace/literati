@@ -8,7 +8,6 @@ $(document).ready(function () {
         $(".mainArea").html(splashPage);
     }
 
-    //button has been clicked
     $("body").on("click", ".start-button", function (event) {
         sound.play();
         generateHTML();
@@ -17,14 +16,7 @@ $(document).ready(function () {
     $("body").on("click", ".answer", function (event) {
         //user has picked an answer
         selectedAnswer = $(this).text();
-        //    if(selectedAnswer === correctAnswers[questionCounter]) {
-        //correct answer
         wait();
-        //    }
-        //    else {
-        //wrong answer!
-        //        generateError();
-        //    }
     });
 
     $("body").on("click", ".reset-button", function (event) {
@@ -48,23 +40,15 @@ function wait() {
     }
 }
 
-function generateError() {
-    quizHTML = "<p class='text-center'>Please make a selection </p>" + "<img class='center-block img-wrong' src='assets/images/Luda.jpg'>";
-    $(".mainArea").html(quizHTML);
-}
-
 function finalScreen() {
-    quizHTML = "<p class='text-center'>Congratulations!  You are most similar to:" +
-        //  <p class="fb-share-button" data-href="https://github.com/panoptic1/literati" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgithub.com%2Fpanoptic1%2Fliterati&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></p>
-        // +
-        //
-        //<section id="final">
-        //<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-        // <
-        // script > ! function (d, s, id) {
-        //     
-        // }(document, "script", "twitter-wjs"); < /script>
-    //</section>
+    quizHTML = "<p class='text-center'>Congratulations!  You are most similar to:" + "<img class='img-responsive img-done' src='assets/images/done.jpg'>"
+        +
+        `<a href="#" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>`
+        +
+        "<a href='https://twitter.com/share?ref_src=twsrc%5Etfw' class='twitter-share-button' data-size='large' data-text='I just took the &quot;Literati&quot; quiz to find my summer reading list' data-url='https://github.com/panoptic1/literati' data-hashtags='literati' data-show-count='false'>Tweet</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>"
+        +
+         "<iframe src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fgithub.com%2Fpanoptic1%2Fliterati&layout=button_count&size=large&mobile_iframe=true&width=84&height=28&appId' width='84' height='28' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allow='encrypted-media'></iframe>"
+         //
     "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Take The Quiz Again!</a></p>";
     $(".mainArea").html(quizHTML);
 }
@@ -102,26 +86,13 @@ var answerArray = [
     ["A small gathering of intimate friends", "Just my snuggle bunny and me", "A large celebration with many guests", "A group of strangers united by a cause"]
 ];
 
-// var imageArray = [
-//     "<img class='center-block img-right' src='assets/images/ODB.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/Missy.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/HolidaeIn.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/YaKidK.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/WestCoast.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/BigE.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/Nicki.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/TCQ.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/Murder.jpg'>",
-//     "<img class='center-block img-right' src='assets/images/DJKool.jpg'>"
-// ];
 
-// var suggestedTitles = [
-// ['"The Tipping Point" by Malcolm Gladwell', '"Walden" by Henry David Thoreau', '"Freakonomics" by Steven Levitt & Stephen Dubner', '"The Elegant Universe" by Brian Greene'],
-// ['""', '""', '""', '""'],
-// ['"Lies My Teacher Told Me" by James W. Loewen', '"Notorius RBG: The Life and Times of Ruth Bader Ginsburg" by Irin Carmon & Shana Knizhnik', '"Unsafe at Any Speed" by Ralph Nader', '"The Hate U Give" by Angie Thomas'],
-// ['"The Secret Life of Bees" by Sue Monk Kidd', '"The Girl with the Dragon Tattoo" by Stieg Larsson', '"On the Road" by Jack Kerouac', '"The Hitchhiker's Guide to the Galaxy" by Douglas Adams'],
-// ['"The Old Man and the Sea" by Ernest Hemingway', '"Kon Tiki" by Thor Heyerdahl', '"A Cook's Tour" by Anthony Bourdain', '"Deliverance" by James Dickey']
-// ];
+ var suggestedTitles = [
+ ['<ahref="https://www.amazon.com/Tipping-Point-Little-Things-Difference/dp/0316346624/ref=sr_1_1?ie=UTF8&qid=1530832311&sr=8-1&keywords=the+tipping+point"<strong>The Tipping Point<strong> by Malcolm Gladwell', '"Walden" by Henry David Thoreau', '"Freakonomics" by Steven Levitt & Stephen Dubner', '"The Elegant Universe" by Brian Greene'],
+ ['"Lies My Teacher Told Me" by James W. Loewen', '"Notorius RBG: The Life and Times of Ruth Bader Ginsburg" by Irin Carmon & Shana Knizhnik', '"Unsafe at Any Speed" by Ralph Nader', '"The Hate U Give" by Angie Thomas'],
+ ['"The Secret Life of Bees" by Sue Monk Kidd', '"The Girl with the Dragon Tattoo" by Stieg Larsson', '"On the Road" by Jack Kerouac', '"The Hitchhiker`s Guide to the Galaxy" by Douglas Adams'],
+ ['"The Old Man and the Sea" by Ernest Hemingway', '"Kon Tiki" by Thor Heyerdahl', '"A Cook`s Tour" by Anthony Bourdain', '"Deliverance" by James Dickey']
+ ];
 
 var questionCounter = 0;
 var selectedAnswer;

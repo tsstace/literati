@@ -69,7 +69,7 @@ body {
     border-radius: 4px;
   }
   
-  .img-wrong {
+  .img-done {
     margin-top: 0px;
   }
   
@@ -88,3 +88,29 @@ body {
   #final {
     display:none;
   }
+
+  html {
+    margin: 40px auto;
+    text-align: center;
+  }
+    .btn-linkedin {
+      background: #0E76A8;
+      color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #084461;
+      border-radius: 5px;
+      font-size: 13px;
+      height: 28px;
+    }
+    .btn-linkedin:link, .btn-linkedin:visited {
+      color: #fff;
+    }
+    .btn-linkedin:active, .btn-linkedin:hover {
+      background: #084461;
+      color: #fff;
+    }
+    .btn {
+      padding-left:16px;
+      margin-bottom:16px;
+    }
