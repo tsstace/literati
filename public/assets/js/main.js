@@ -6,7 +6,7 @@ function onSignIn(googleUser) {
       profile_pic: profile.getImageUrl(),
       user_name: profile.getName(),
       email: profile.getEmail(),
-  }
+      }
   console.log(googleUser);
   $(".welcome").css("display", "none");
   $(".booksBG").css("display", "none");
@@ -172,7 +172,6 @@ var $shelfBook = `<!-- Button trigger modal -->
         <div class="modal fade" id="shelfbookModal" tabindex="-1" role="dialog" aria-labelledby="shelfbookModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-
               <div class="modal-body">
                 
                             <p> <label for="body">Change the status of the book</label>
@@ -358,4 +357,3 @@ $(document).ready(function() {
   // }
 
 });
-
