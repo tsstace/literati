@@ -50,9 +50,7 @@
     </div>
 
     <div class="CONTAINER-fluid" id="data">
-        <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark"> -->
-                <!-- <nav class="navbar navbar-expand-lg justify-content-between"> -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top">
             <img src="assets/images/logo2.png" id="logo" href="/">
             <a class="navbar-brand" href="/" id="logoName">LITERATI</a>
             <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
@@ -83,7 +81,7 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" onclick="signOut()">
                             Sign Out
                         </a>
@@ -97,11 +95,10 @@
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter" id="profile">
                 <img id="pic" />
                 <div id="profileText">
-                    <P>Name</P>
                     <p id="name"></p>
-                    <p>Email</p>
                     <p id="email"></p>
                 </div>
+
                 <p>BOOKSHELF</p>
                 <!-- After clicking TO READ, all books categorized as correspoding will appear -->
                 <p>To Read</p>
@@ -116,39 +113,19 @@
             <!----------------SECOND COLUMN ---------------->
             <div class="col-xs-5 col-md-7 col-lg-9 vcenter" id="mainSecondCol">
 
-                <!--Search Results will be dumped in the section below-->
-                <div class="col" id="book-search"></div>
                 <a href="bookrec.html" id="bookMatchLink">
                     Not sure what to read? Take our quiz here to find the perfect book for you! </a>
-                <p>
-                    <input class="form-control" id="title" type="search" placeholder="Find a book!" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
-                        </p>
+                <input class="form-control" id="title" type="search" placeholder="Find a book!" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
 
                     <hr>
+                    <!--Search Results will be dumped in the section below-->
+                <div class="col" id="book-search"></div>
 
                     <!-- THIS IS THE DIV CONTAINER FEEDING THE LIVE FEED -->
                     LIVE FEED HERE
                     <div class="col" id="blog-container"></div>
 
-                </div>
-
-
-                <!-- <div class="col-xs-3" id="bookshelf">
-        <p>BOOKSHELF</p>
-        After clicking TO READ, all books categorized as correspoding will appear
-        <p>To Read</p>
-
-        After clicking CURRENTLY READ, all books categorized as correspoding will appear
-        <p>Currently Reading</p>
-
-        After clicking PREVIOUSLY READ, all books categorized as correspoding will appear
-        <p>Previously Read</p>
-    </div> -->
-
-
-                <!--Search Results will be dumped in the section below-->
-                <div class=".col" id="book-search">
                 </div>
 
             </div>
