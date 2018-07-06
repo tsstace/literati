@@ -1,5 +1,3 @@
-let email
-
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   var userInfo = {
@@ -40,6 +38,8 @@ function signOut() {
 
 //--------------------This function searches for books with the API----------------------------
 function findBook() {
+  $("#blog-container").css("display", "none");
+
     var title = $("#title").val();
     var author = $("#author").val();
     var searchResults = {};
@@ -114,21 +114,15 @@ var $recommendation = `<!-- Button trigger modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
               <div class="modal-body">
                 
                             <label for="body">Write your review:</label>
-                            <textarea class="form-control" rows="10" id="body"></textarea>
-                            <p>
+                            <textarea class="form-control" rows="10" id="commentBody"></textarea>
+                            
                             <div class="rating">
                             <label for="body">Rate the book:</label>
-                            <i>Radio buttons will be changed to stars</I>
-                            <form id="q1">
+                            <i> How many stars would you give this book?</I>
+                            <form id="rating">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="starRating" option value="1">
                                     <label class="form-check-label" for="inlineRadio1">1</label>
@@ -157,7 +151,7 @@ var $recommendation = `<!-- Button trigger modal -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="recommendBook()">Save changes</button>
+                <button type="button" class="btn btn-primary recommend-book">Save changes</button>
               </div>
             </div>
           </div>
@@ -200,7 +194,7 @@ var $shelfBook = `<!-- Button trigger modal -->
           </div>
         </div>`;
 
-//--------------------------- THIS IS FOR THE SHELVING FUNCTION---------------------------------
+//--------------------------- THIS IS FOR THE SHELVING FUNCTION---------------------------------//
 
 $(document).ready(function() {
   function shelfBook() {
@@ -230,9 +224,39 @@ $(document).ready(function() {
   $('body').on('click', '.shelf-button', shelfBook);
 });
 
-function recommendBook(){
 
-};
+//--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
+$(document).ready(function() {
+  function recommendBook() {
+
+    //Create an object variable for all of the info that we want to insert into the books table
+    var email=$("#email").text();
+    var user=$("#name").text();
+    var rating = $("#rating input:checked").val();
+    var comment = $("#commentBody").text();
+
+    var commentInfo = {
+      title: $(this).closest('.results').attr("data-title"),
+      author: $(this).closest('.results').attr("data-author"),
+      genre: $(this).closest('.results').attr("data-genre"),
+      cover_art_url: $(this).closest('.results').attr("data-cover"),
+      copyright_date: $(this).closest('.results').attr("data-copyright"),
+      ISBN: $(this).closest('.results').attr("data-ISBN"),
+      synopsis: $(this).closest('.results').attr("data-synopsis"),
+      email: email,
+      user: user,
+      rating: rating,
+      comment: comment
+    }
+    
+    console.log(commentInfo);
+    $.ajax({url: "/api/comments", method: "POST", data: commentInfo, success: function(result){
+      $(console.log("Successful recommendation added!", result));
+    }});
+  }
+  $('body').on('click', '.recommend-book', recommendBook);
+});
+
 //----------- THIS IS FOR COMMENT BOX -----------//
 
 $(document).ready(function() {
