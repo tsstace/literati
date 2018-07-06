@@ -4,7 +4,7 @@ function onSignIn(googleUser) {
       profile_pic: profile.getImageUrl(),
       user_name: profile.getName(),
       email: profile.getEmail(),
-  }
+      }
   console.log(googleUser);
   $(".welcome").css("display", "none");
   $(".booksBG").css("display", "none");
@@ -34,23 +34,24 @@ function signOut() {
     });
 }
 
+//--------------------This function searches for books with the API----------------------------
 function findBook() {
     var title = $("#title").val();
     var author = $("#author").val();
     var searchResults = {};
 
     $.get("/book?title=" + title + "&limit=10", function (data) {
-        console.log("DAT YUNG DATA ====>", data)
+        //console.log("DAT YUNG DATA ====>", data)
         $("#book-search").empty();
 
         for (var i = 0; i < data.items.length; i++) {
-            console.log("Title: " + data.items[i].volumeInfo.title);
+            /*console.log("Title: " + data.items[i].volumeInfo.title);
             console.log("Author: " + data.items[i].volumeInfo.authors[0]);
             console.log("Genre: " + data.items[i].volumeInfo.categories[0]);
             console.log("Copyright Date: " + data.items[i].volumeInfo.publishedDate);
             console.log("ISBN: " + data.items[i].volumeInfo.industryIdentifiers[0].identifier);
             console.log("Cover Art: " + data.items[i].volumeInfo.imageLinks.thumbnail);
-            console.log("Synopsis: " + data.items[i].volumeInfo.description);
+            console.log("Synopsis: " + data.items[i].volumeInfo.description);*/
 
             //Create a parent div
             var bookSearch = $('<div>');
@@ -59,7 +60,14 @@ function findBook() {
             //Add an id for each of the items that will arrive on the list
             bookSearch.attr("id", "item-" + i);
 
-            //Add all books to page
+            //Add data- attributes in order to gain access to pertinent book information for db storage
+            bookSearch.attr("data-title", data.items[i].volumeInfo.title);
+            bookSearch.attr("data-author", data.items[i].volumeInfo.authors[0]);
+            bookSearch.attr("data-genre", data.items[i].volumeInfo.categories[0]);
+            bookSearch.attr("data-copyright", data.items[i].volumeInfo.publishedDate);
+            bookSearch.attr("data-ISBN", data.items[i].volumeInfo.industryIdentifiers[0].identifier);
+            bookSearch.attr("data-cover", data.items[i].volumeInfo.imageLinks.thumbnail);
+            bookSearch.attr("data-synopsis", data.items[i].volumeInfo.description);
 
             // make the name an h2,
             bookSearch.append("<h2>" + data.items[i].volumeInfo.title + "</h2>");
@@ -87,22 +95,8 @@ function findBook() {
 
             //Append the search results to the search-results section
             $("#book-search").append(bookSearch)
+
         }
-
-
-        /*console.log(' data new ===>', normalizedData)
-
-        bookSearch.forEach(function(book){
-            console.log(book)
-            var searchResults = $('div');
-
-            searchResults.addClass("suggestions");
-            
-            searchResults.attr("id", "item-")
-            
-            document.body.appendChild( search )
-        })*/
-
 
     });
 }
@@ -159,7 +153,7 @@ var $recommendation = `<!-- Button trigger modal -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="recommendBook()">Save changes</button>
               </div>
             </div>
           </div>
@@ -174,11 +168,10 @@ var $shelfBook = `<!-- Button trigger modal -->
         <div class="modal fade" id="shelfbookModal" tabindex="-1" role="dialog" aria-labelledby="shelfbookModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-
               <div class="modal-body">
                 
                             <p> <label for="body">Change the status of the book</label>
-                            <form id="q1">
+                            <form id="q1" action="/books/create" method="POST">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bookStatus" option value="1">
                                     <label class="form-check-label" for="inlineRadio1">To Read</label>
@@ -197,46 +190,38 @@ var $shelfBook = `<!-- Button trigger modal -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary shelf-button">Save changes</button>
               </div>
             </div>
           </div>
         </div>`;
 
-/*for (var i = 0; i < data.length; i++) {
-    // create a parent div for the oncoming elements
-    var wellSection = $("<div>");
-    // add a class to this div: 'well'
-    wellSection.addClass("well");
-    // add an id to the well to mark which well it is
-    wellSection.attr("id", "character-well-" + i);
-    // append the well to the well section
-    $("#well-section").append(wellSection);
+//--------------------------- THIS IS FOR THE SHELVING FUNCTION---------------------------------
 
-    // Now add all of our character data to the well we just placed on the page
+$(document).ready(function() {
+  function shelfBook() {
+    //Create an object variable for all of the info that we want to insert into the books table
+    var bookInfo = {
+      title: $(this).closest('.results').attr("data-title"),
+      author: $(this).closest('.results').attr("data-author"),
+      genre: $(this).closest('.results').attr("data-genre"),
+      copyright_date: $(this).closest('.results').attr("data-copyright"),
+      ISBN: $(this).closest('.results').attr("data-ISBN"),
+      cover_art_url: $(this).closest('.results').attr("data-cover"),
+      synopsis: $(this).closest('.results').attr("data-synopsis"),
+      }
 
-    // make the name an h2,
-    $("#character-well-" + i).append("<h2>" + data[i].name + "</h2>");
-    // the role an h3,
-    $("#character-well-" + i).append("<h3>Role: " + data[i].role + "</h4>");
-    // the age an h3,
-    $("#character-well-" + i).append("<h3>Age: " + data[i].age + "</h4>");
-    // and the forcepoints an h3.
-    $("#character-well-" + i).append("<h3>Force Points: " + data[i].forcePoints + "</h4>");
+    console.log(bookInfo);
+    $.ajax({url: "/api/books", method: "POST", data: bookInfo, success: function(result){
+      $(console.log("Success!", result));
+    }});
   }
+  $('body').on('click', '.shelf-button', shelfBook);
+});
 
-  const normalizedData = data.items.map( item => {
-    return {
-        title: item.volumeInfo.title,
-        author: item.volumeInfo.authors[0],
-        genre: item.volumeInfo.categories,
-        copyright_date: item.volumeInfo.publishedDate,
-        ISBN: item.volumeInfo.industryIdentifiers[0].identifier,
-        cover_art: item.volumeInfo.imageLinks.thumbnail,
-        synopsis: item.volumeInfo.description
-    }
-})*/
+function recommendBook(){
 
+};
 //----------- THIS IS FOR COMMENT BOX -----------//
 
 $(document).ready(function() {
@@ -369,4 +354,3 @@ $(document).ready(function() {
   // }
 
 });
-
