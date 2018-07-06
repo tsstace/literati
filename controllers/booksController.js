@@ -36,14 +36,15 @@ router.post("/api/books", function(req, res) {
   console.log("Look here!", req.user);
   db.Books.create({
     email : req.body.email,
+    user: req.body.user,
     title: req.body.title,
     author: req.body.author,
     genre: req.body.genre,
     copyright_date: req.body.copyright_date,
     ISBN: req.body.ISBN,
-    cover_art_url: req.body.cover,
+    cover_art_url: req.body.cover_art_url,
     synopsis: req.body.synopsis,
-    status: req.body.q1,
+    status: req.body.status
   }).then(function(result){
     console.log(result)
   })
