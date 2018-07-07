@@ -34,6 +34,7 @@ __*Literati*__ includes all of the following capabilities for a user:
 - Request
 - Body-parser
 - mySQL
+- Sequelize
 
 # Dev Team:
 
