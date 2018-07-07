@@ -26,9 +26,8 @@ __*Literati*__ includes all of the following capabilities for a user:
  ![](http://williamavasquez.herokuapp.com/img/node.png)
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  ![](http://williamavasquez.herokuapp.com/img/mysql.png)
-  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
- ![](http://danieldurante.com/images/sequelize.png)
  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
+ ![](http://danieldurante.com/images/sequelize.png)
  
 
 # Node packages included:
