@@ -16,7 +16,7 @@ $(document).ready(function () {
     $("body").on("click", ".answer", function (event) {
         //user has picked an answer
         selectedAnswer = $(this).text();
-        wait();
+        checkQuestion();
     });
 
     $("body").on("click", ".reset-button", function (event) {
@@ -27,11 +27,11 @@ $(document).ready(function () {
 });
 
 function generateHTML() {
-    quizHTML = "<p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. " + answerArray[questionCounter][1] + "</p><p class='answer'>C. " + answerArray[questionCounter][2] + "</p><p class='answer'>D. " + answerArray[questionCounter][3] + "</p>";
+    quizHTML = "<p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>1. " + answerArray[questionCounter][0] + "</p><p class='answer'>2. " + answerArray[questionCounter][1] + "</p><p class='answer'>3. " + answerArray[questionCounter][2] + "</p><p class='answer'>4. " + answerArray[questionCounter][3] + "</p>";
     $(".mainArea").html(quizHTML);
 }
 
-function wait() {
+function checkQuestion() {
     if (questionCounter < 9) {
         questionCounter++;
         generateHTML();
@@ -41,15 +41,30 @@ function wait() {
 }
 
 function finalScreen() {
-    quizHTML = "<p class='text-center'>Congratulations!  You are most similar to:" + "<img class='img-responsive img-done' src='assets/images/done.jpg'>"
+    quizHTML = "<img class='img-circle img-done' src='assets/images/done.jpg'>" + "<p class='text-center'>Congratulations!  You are most similar to: <br> the <strong>Scholar</strong> archetype, a natural student.<br> <br>  Your enthusiasm for learning and curiosity draw you to explore the world around you as well as your preconceived notions about humanity.</p>" 
+         +
+         "<p class='text-center'>Literati recommends the following titles as your perfect matches: </p>"
         +
-        `<a href="#" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>`
+        "<a href='https://www.amazon.com/Tipping-Point-Little-Things-Difference/dp/0316346624/ref=sr_1_1?ie=UTF8&qid=1530832311&sr=8-1&keywords=the+tipping+point' target='_blank'><strong>The Tipping Point</strong> by Malcolm Gladwell</a><br>"
         +
-        "<a href='https://twitter.com/share?ref_src=twsrc%5Etfw' class='twitter-share-button' data-size='large' data-text='I just took the &quot;Literati&quot; quiz to find my summer reading list' data-url='https://github.com/panoptic1/literati' data-hashtags='literati' data-show-count='false'>Tweet</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>"
+        "<a href='https://www.amazon.com/Freakonomics-Revised-Expanded-Economist-Everything/dp/0061234001/ref=sr_1_1?s=books&ie=UTF8&qid=1530928126&sr=1-1&keywords=Freakonomics' target='_blank'><strong>Freakonomics</strong> by Steven Levitt & Stephen Dubner</a><br>"
+        +
+        "<a href='https://www.amazon.com/Walden-Henry-David-Thoreau/dp/1505297729/ref=sr_1_3_sspa?s=books&ie=UTF8&qid=1530928263&sr=1-3-spons&keywords=Walden&psc=1' target='_blank'><strong>Walden</strong> by Henry David Thoreau</a><br>"
+        +
+        "<a href='https://www.amazon.com/Elegant-Universe-Superstrings-Dimensions-Ultimate/dp/039333810X/ref=sr_1_1?s=books&ie=UTF8&qid=1530928414&sr=1-1&keywords=The+Elegant+Universe' target='_blank'><strong>The Elegant Universe</strong> by Brian Greene</a><br>"
+        +
+        "<br>"
+        +
+        "<p class='text-justify'>Share your results on social media!</p>"
+        +
+        "<a href='https://twitter.com/share?ref_src=twsrc%5Etfw' class='twitter-share-button' data-size='large' data-text='I just took the &quot;Literati&quot; quiz to find my summer reading list' data-url='https://github.com/panoptic1/literati' data-hashtags='literati, getlit, bookhookup' data-show-count='false'>Tweet</a><script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>"
         +
          "<iframe src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fgithub.com%2Fpanoptic1%2Fliterati&layout=button_count&size=large&mobile_iframe=true&width=84&height=28&appId' width='84' height='28' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allow='encrypted-media'></iframe>"
-         //
-    "<p class='text-center reset-button-container'><a class='btn btn-primary btn-lg btn-block reset-button' href='#' role='button'>Take The Quiz Again!</a></p>";
+        +
+        `<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/panoptic1/literati&title=Literati%20Quiz%20Results%20Summer%20Reading&summary=My%20Literati%20quiz%20results&source=LinkedIn' target='_blank'" 
+        title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>`
+        +
+    "<p class='text-center reset-button-container'><a class='btn btn-primary btn-sm btn-block reset-button' href='#' role='button'>Take The Quiz Again!</a></p>";
     $(".mainArea").html(quizHTML);
 }
 
@@ -88,7 +103,7 @@ var answerArray = [
 
 
  var suggestedTitles = [
- ['<ahref="https://www.amazon.com/Tipping-Point-Little-Things-Difference/dp/0316346624/ref=sr_1_1?ie=UTF8&qid=1530832311&sr=8-1&keywords=the+tipping+point"<strong>The Tipping Point<strong> by Malcolm Gladwell', '"Walden" by Henry David Thoreau', '"Freakonomics" by Steven Levitt & Stephen Dubner', '"The Elegant Universe" by Brian Greene'],
+ ['"The Tipping Point" by Malcolm Gladwell', '"Walden" by Henry David Thoreau', '"Freakonomics" by Steven Levitt & Stephen Dubner', '"The Elegant Universe" by Brian Greene'],
  ['"Lies My Teacher Told Me" by James W. Loewen', '"Notorius RBG: The Life and Times of Ruth Bader Ginsburg" by Irin Carmon & Shana Knizhnik', '"Unsafe at Any Speed" by Ralph Nader', '"The Hate U Give" by Angie Thomas'],
  ['"The Secret Life of Bees" by Sue Monk Kidd', '"The Girl with the Dragon Tattoo" by Stieg Larsson', '"On the Road" by Jack Kerouac', '"The Hitchhiker`s Guide to the Galaxy" by Douglas Adams'],
  ['"The Old Man and the Sea" by Ernest Hemingway', '"Kon Tiki" by Thor Heyerdahl', '"A Cook`s Tour" by Anthony Bourdain', '"Deliverance" by James Dickey']
