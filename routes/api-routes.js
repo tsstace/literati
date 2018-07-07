@@ -14,27 +14,27 @@ module.exports = function(app) {
 
   // GET route for getting all of the comments
   app.get("/api/comments", function(req, res) {
-    db.Comment.findAll({})
+    db.recommendations.findAll({})
       .then(function(dbComment) {
         res.json(dbComment);
       });
   });
 
-  // Get route for returning comments of a specific category
-//   app.get("/api/posts/category/:category", function(req, res) {
-//     db.Post.findAll({
-//       where: {
-//         category: req.params.category
-//       }
-//     })
-//       .then(function(dbPost) {
-//         res.json(dbPost);
-//       });
-//   });
+  //Get route for returning comments of a specific book
+  app.get("/api/comments/book/:title", function(req, res) {
+    db.recommendations.findAll({
+      where: {
+        title: req.params.title
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 
   // Get route for retrieving a single comment
   app.get("/api/comments/:id", function(req, res) {
-    db.Comment.findOne({
+    db.recommendations.findOne({
       where: {
         id: req.params.id
       }
@@ -47,9 +47,15 @@ module.exports = function(app) {
   // POST route for saving a new comment
   app.post("/api/comments", function(req, res) {
     console.log(req.body);
-    db.Comment.create({
+    db.recommendations.create({
+      user: req.body.user,
+      email: req.body.email,
       title: req.body.title,
-      body: req.body.body,
+      author: req.body.author,
+      ISBN: req.body.ISBN,
+      cover_art_url: req.body.cover_art_url,
+      rating: req.body.rating,
+      comment: req.body.comment,
     })
       .then(function(dbComment) {
         res.json(dbComment);
@@ -58,7 +64,7 @@ module.exports = function(app) {
 
   // DELETE route for deleting comments
   app.delete("/api/comments/:id", function(req, res) {
-    db.Comment.destroy({
+    db.recommendations.destroy({
       where: {
         id: req.params.id
       }
@@ -71,7 +77,7 @@ module.exports = function(app) {
   // PUT route for updating comments
   app.put("/api/comments", function(req, res) {
     console.log(req.body);
-    db.Comment.update(req.body,
+    db.recommendations.update(req.body,
       {
         where: {
           id: req.body.id
