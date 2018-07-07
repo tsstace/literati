@@ -7,7 +7,11 @@ module.exports = function(sequelize, DataTypes) {
         ISBN: DataTypes.STRING,
         cover_art_url: DataTypes.STRING,
         rating: DataTypes.INTEGER,
+<<<<<<< HEAD
         comment: DataTypes.TEXT,
+=======
+        comment: DataTypes.STRING,
+>>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
     });
     return Recommendations;
 }

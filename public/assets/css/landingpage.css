@@ -122,7 +122,11 @@ body {
     width: 144%;
     display: table;
     padding: 1em;
+<<<<<<< HEAD
     border-radius: 5px;
+=======
+    border-radius: 15px;
+>>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
     margin-left: 2em;
 }
 
@@ -353,6 +357,7 @@ span.buttonText {
     text-align: center;
     font-family: 'PT Serif', serif;
 }
+<<<<<<< HEAD
 
 /* ----- BOOKSHELF BUTTON ---- */
 .dropbtn {
@@ -400,3 +405,5 @@ span.buttonText {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+=======
+>>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b

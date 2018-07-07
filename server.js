@@ -19,12 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-// Set Handlebars.
-var exphbs = require("express-handlebars");
+// Sequelize require db models
 var db = require("./models");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/booksController.js");
