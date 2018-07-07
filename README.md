@@ -19,6 +19,7 @@ It includes all of the following capabilities for a user:
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  ![](http://williamavasquez.herokuapp.com/img/node.png)
  ![](http://williamavasquez.herokuapp.com/img/mysql.png)
+ ![](https://www.google.com/search?q=heroku+small+icon&rlz=1C1SQJL_enUS785US785&tbm=isch&source=iu&ictx=1&fir=V0BKLfyIBijmzM%253A%252CW_hO-Q9x55_87M%252C_&usg=__-S-ySE-MnmGM2d5_g-BuVjsImbg%3D&sa=X&ved=0ahUKEwje4cfxnIzcAhVj04MKHeLCC1gQ9QEILzAC#imgrc=V0BKLfyIBijmzM:)
 
 # APIs employed:
 - **Google Sign-In** for web applications: manages the OAuth flow and token lifecycle, simplifying integration with Google APIs.  [Dev Docs](https://developers.google.com/identity/sign-in/web/sign-in)
