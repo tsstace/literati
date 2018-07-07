@@ -2,8 +2,8 @@
 Welcome to the coziest corner of the world wide web:  __*Literati*__.  This full stack web application allows users to leverage the power that web-based technologies can bring to their literary life.  It was created using the Model View Controller paradigm to separate the user interface from database interactions, while the controller is calling the shots by ensuring all requests are routed to the appropriate functions.  Whether you are a bookworm at heart or a newbie looking to get started, we have something for you!
 
 __*Literati*__ includes all of the following capabilities for a user:  
-* brainstorm about the books they would like to read with a robust search feature that harnesses the **Google Books API**
-* the ability to sign in using their Google credentials, courtesy of the **Google Sign-In API**
+* brainstorm about the books they would like to read with a robust search feature that harnesses **Google Books**
+* the ability to sign in using their Google credentials, courtesy of **Google Sign-In**
 * pose questions and engage in discussions with other users about a book
 * create a virtual bookshelf to track their selections and progress
 * a quiz to recommend targeted titles based on interests and personality traits  
