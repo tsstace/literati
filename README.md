@@ -9,7 +9,7 @@ It includes all of the following capabilities for a user:
 * facilitate an online book club
 * share their reading list on social media
 
-![Read](./assets/images/LiteratiMoneyShot.PNG)
+![Screenshot](./assets/images/LiteratiMoneyShot.PNG)
 
 # Technologies utilized:
 - Node.js
