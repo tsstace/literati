@@ -1,15 +1,9 @@
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   var userInfo = {
-<<<<<<< HEAD
     profile_pic: profile.getImageUrl(),
     user_name: profile.getName(),
     email: profile.getEmail(),
-=======
-      profile_pic: profile.getImageUrl(),
-      user_name: profile.getName(),
-      email: profile.getEmail(),
->>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
   }
   console.log(googleUser);
   $(".welcome").css("display", "none");
@@ -46,13 +40,6 @@ function signOut() {
 //--------------------This function searches for books with the API----------------------------
 function findBook() {
   $("#blog-container").css("display", "none");
-<<<<<<< HEAD
-=======
-
-    var title = $("#title").val();
-    var author = $("#author").val();
-    var searchResults = {};
->>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
 
   var title = $("#title").val();
   var author = $("#author").val();
@@ -213,13 +200,8 @@ var $shelfBook = `<!-- Button trigger modal -->
 $(document).ready(function () {
   function shelfBook() {
     //Create an object variable for all of the info that we want to insert into the books table
-<<<<<<< HEAD
     var email = $("#email").text();
     var user = $("#name").text();
-=======
-    var email=$("#email").text();
-    var user=$("#name").text();
->>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
     var status = $('#status input:checked').val();
 
     var bookInfo = {
@@ -246,7 +228,6 @@ $(document).ready(function () {
 });
 
 
-<<<<<<< HEAD
 // //--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
 // $(document).ready(function() {
 
@@ -286,69 +267,6 @@ $(document).ready(function () {
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-=======
-//--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
-$(document).ready(function() {
-  function recommendBook() {
-
-    //Create an object variable for all of the info that we want to insert into the books table
-    var email=$("#email").text();
-    var user=$("#name").text();
-    var rating = $("#rating input:checked").val();
-    var comment = $("#commentBody").text();
-
-    var commentInfo = {
-      title: $(this).closest('.results').attr("data-title"),
-      author: $(this).closest('.results').attr("data-author"),
-      genre: $(this).closest('.results').attr("data-genre"),
-      cover_art_url: $(this).closest('.results').attr("data-cover"),
-      copyright_date: $(this).closest('.results').attr("data-copyright"),
-      ISBN: $(this).closest('.results').attr("data-ISBN"),
-      synopsis: $(this).closest('.results').attr("data-synopsis"),
-      email: email,
-      user: user,
-      rating: rating,
-      comment: comment
-    }
-    
-    console.log(commentInfo);
-    $.ajax({url: "/api/comments", method: "POST", data: commentInfo, success: function(result){
-      $(console.log("Successful recommendation added!", result));
-    }});
-  }
-  $('body').on('click', '.recommend-book', recommendBook);
-});
-
-//----------- THIS IS FOR COMMENT BOX -----------//
-
-$(document).ready(function() {
-  // blogContainer holds all of our comments
-  var blogContainer = $(".blog-container");
-  // var postCategorySelect = $("#category");
-  // Click events for the edit and delete buttons
-  $(document).on("click", "button.delete", handleCommentDelete);
-  $(document).on("click", "button.edit", handleCommentEdit);
-  // postCategorySelect.on("change", handleCategoryChange);
-  var comment;
-
-  // This function grabs comments from the database and updates the view
-  function getComment(category) {
-    var categoryString = category || "";
-    if (categoryString) {
-      categoryString = "/category/" + categoryString;
-    }
-    $.get("/api/comment" + categoryString, function(data) {
-      console.log("Comments", data);
-      comments = data;
-      if (!comments || !comments.length) {
-        displayEmpty();
-      }
-      else {
-        initializeRows();
-      }
-    });
-  }
->>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
@@ -363,44 +281,4 @@ window.onclick = function (event) {
       }
     }
   }
-<<<<<<< HEAD
 }
-=======
-
-  // This function figures out which comment we want to delete and then calls
-  // deleteComment
-  function handleCommentDelete() {
-    var currentComment = $(this)
-      .parent()
-      .parent()
-      .data("comment");
-    deleteComment(currentComment.id);
-  }
-
-  // This function figures out which comment we want to edit and takes it to the
-  // Appropriate url
-  function handleCommentEdit() {
-    var currentComment = $(this)
-      .parent()
-      .parent()
-      .data("comment");
-    window.location.href = "/cms?comment_id=" + currentComment.id;
-  }
-
-  // This function displays a message when there are no comments
-  function displayEmpty() {
-    blogContainer.empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No comments yet for this category, navigate <a href='/cms'>here</a> in order to create a new comment.");
-    blogContainer.append(messageH2);
-  }
-
-  // This function handles reloading new posts when the category changes
-  // function handleCategoryChange() {
-  //   var newPostCategory = $(this).val();
-  //   getPosts(newPostCategory);
-  // }
-
-});
->>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
