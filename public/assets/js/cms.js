@@ -1,85 +1,141 @@
+//--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
+//PUSHES RECOMMENDATION AND SELECTED BOOK TO DATABASE 
+
 $(document).ready(function() {
-    // Gets an optional query string from our url (i.e. ?comment_id=23)
-    var url = window.location.search;
-    var commentId;
-    // Sets a flag for whether or not we're updating a comment to be false initially
-    var updating = false;
-  
-    // If we have this section in our url, we pull out the comment id from the url
-    // In localhost:3000/cms?comment_id=1, commentId is 1
-    if (url.indexOf("?comment_id=") !== -1) {
-      commentId = url.split("=")[1];
-      getCommentData(commentId);
+
+  function recommendBook() {
+
+    //Create an object variable for all of the info that we want to insert into the recommendation table
+    var email=$("#email").text();
+    var user=$("#name").text();
+    var rating = $("#rating input:checked").val();
+    var comment = $("#commentBody").val().trim();
+
+    var commentInfo = {
+      title: $(this).closest('.results').attr("data-title"),
+      author: $(this).closest('.results').attr("data-author"),
+      genre: $(this).closest('.results').attr("data-genre"),
+      cover_art_url: $(this).closest('.results').attr("data-cover"),
+      copyright_date: $(this).closest('.results').attr("data-copyright"),
+      ISBN: $(this).closest('.results').attr("data-ISBN"),
+      synopsis: $(this).closest('.results').attr("data-synopsis"),
+      email: email,
+      user: user,
+      rating: rating,
+      comment: comment
     }
-  
-    // Getting jQuery references to the comment body, title, form, and category select
-    var bodyInput = $("#body");
-    var titleInput = $("#title");
-    var cmsForm = $("#cms");
-    // var commentCategorySelect = $("#category");
+    
+    console.log(commentInfo);
+    $.ajax({url: "/api/comments", method: "POST", data: commentInfo, success: function(result){
+      $(console.log("Successful recommendation added!", result));
+      sum
+    }});
+  }
 
-    // Giving the commentCategorySelect a default value
-    // commentCategorySelect.val("Personal");
+  $('body').on('click', '.recommend-book', recommendBook);
 
-    // Adding an event listener for when the form is submitted
-    $(cmsForm).on("submit", function handleFormSubmit(event) {
-      event.preventDefault();
-      // Wont submit the comment if we are missing a body or a title
-      if (!titleInput.val().trim() || !bodyInput.val().trim()) {
-        return;
-      }
-      // Constructing a newComment object to hand to the database
-      var newComment = {
-        title: titleInput.val().trim(),
-        body: bodyInput.val().trim(),
-        // category: commentCategorySelect.val()
-      };
-  
-      console.log(newComment);
-  
-      // If we're updating a comment run updateComment to update a comment
-      // Otherwise run submitComment to create a whole new comment
-      if (updating) {
-        newComment.id = commentId;
-        updateComment(newComment);
+});
+
+//----------------------------------------------------------------------------------------//
+  // Submits a new post and brings user to blog page upon completion
+  function submitPost(Post) {
+    $.post("/api/posts/", Post, function() {
+      window.location.href = "/";
+    });
+  }
+//-------------------------FROM BLOG.JS---------------------------------------------------------------//
+
+$(document).ready(function() {
+  // blogContainer holds all of our posts
+  var blogContainer = $("#blog-container");
+  // var postCategorySelect = $("#category");
+  // Click events for the edit and delete buttons
+  // $(document).on("click", "button.delete", handlePostDelete);
+  // $(document).on("click", "button.edit", handlePostEdit);
+  // postCategorySelect.on("change", handleCategoryChange);
+  var posts;
+
+  // This function grabs posts from the database and updates the view
+  function getPosts(title) {
+    var categoryString = title || "";
+    // if (categoryString) {
+    //   categoryString = "/category/" + categoryString;
+    // }
+    $.get("/api/posts" + categoryString, function(data) {
+      console.log("Comments", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        displayEmpty();
       }
       else {
-        submitComment(newComment);
+        initializeRows();
       }
     });
-  
-    // Submits a new comment and brings user to blog page upon completion
-    function submitComment(Comment) {
-      $.post("/api/comments/", Comment, function() {
-        window.location.href = "/";
-      });
+  }
+
+    // Getting the initial list of posts
+    getPosts();
+
+// InitializeRows handles appending all of our constructed post HTML inside
+  // blogContainer
+  function initializeRows() {
+    blogContainer.empty();
+    var postsToAdd = [];
+    for (var i = 0; i < posts.length; i++) {
+      postsToAdd.push(createNewRow(posts[i]));
     }
-  
-    // Gets comment data for a comment if we're editing
-    function getCommentData(id) {
-      $.get("/api/comments/" + id, function(data) {
-        if (data) {
-          // If this comment exists, prefill our cms forms with its data
-          titleInput.val(data.title);
-          bodyInput.val(data.body);
-        //   commentCategorySelect.val(data.category);
-          // If we have a comment with this id, set a flag for us to know to update the comment
-          // when we hit submit
-          updating = true;
-        }
-      });
-    }
-  
-    // Update a given comment, bring user to the main page when done
-    function updateComment(comment) {
-      $.ajax({
-        method: "PUT",
-        url: "/api/comments",
-        data: comment
-      })
-        .then(function() {
-          window.location.href = "/";
-        });
-    }
-  });
-  
+    blogContainer.append(postsToAdd);
+  }
+
+  // This function constructs a post's HTML
+  function createNewRow(post) {
+    var newPostCard = $("<div>");
+    newPostCard.addClass("card");
+    var newPostCardHeading = $("<div>");
+    newPostCardHeading.addClass("card-header");
+    var deleteBtn = $("<button>");
+    deleteBtn.text("x");
+    deleteBtn.addClass("delete btn btn-danger");
+    var editBtn = $("<button>");
+    editBtn.text("EDIT");
+    editBtn.addClass("edit btn btn-default");
+    var newPostTitle = $("<h2>");
+    var newPostDate = $("<small>");
+    var newPostCategory = $("<h5>");
+    newPostCategory.text(recommendations.user);
+    newPostCategory.css({
+      float: "right",
+      "font-weight": "700",
+      "margin-top":
+      "-15px"
+    });
+    var newPostCardBody = $("<div>");
+    newPostCardBody.addClass("card-body");
+    var newPostBody = $("<p>");
+    newPostTitle.text(recommendations.title + " ");
+    newPostBody.text(recommendations.comment);
+    var formattedDate = new Date(recommendations.createdAt);
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    newPostDate.text(formattedDate);
+    newPostTitle.append(newPostDate);
+    newPostCardHeading.append(deleteBtn);
+    newPostCardHeading.append(editBtn);
+    newPostCardHeading.append(newPostTitle);
+    newPostCardHeading.append(newPostCategory);
+    newPostCardBody.append(newPostBody);
+    newPostCard.append(newPostCardHeading);
+    newPostCard.append(newPostCardBody);
+    newPostCard.data("post", post);
+    return newPostCard;
+  }
+
+  // This function displays a message when there are no posts
+  function displayEmpty() {
+    blogContainer.empty();
+    var messageH2 = $("<h2>");
+    messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
+    blogContainer.append(messageH2);
+  }
+
+});

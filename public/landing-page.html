@@ -58,13 +58,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <!-- <ul class="navbar-nav navbar-right"> -->
-                        <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
@@ -89,7 +89,7 @@
                 </ul>
             </div>
         </nav>
-        
+
 
         <div class="row">
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter" id="profile">
@@ -98,6 +98,8 @@
                     <p id="name"></p>
                     <p id="email"></p>
                 </div>
+<<<<<<< HEAD
+=======
 
                 <p>BOOKSHELF</p>
                 <!-- After clicking TO READ, all books categorized as correspoding will appear -->
@@ -105,12 +107,46 @@
 
                 <!-- After clicking CURRENTLY READ, all books categorized as correspoding will appear -->
                 <p>Currently Reading</p>
+>>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
 
-                <!-- After clicking PREVIOUSLY READ, all books categorized as correspoding will appear -->
-                <p>Previously Read</p>
+                <div class="dropdown">
+                        <!-- <button onclick="myFunction()" class="dropbtn">bookshelf</button> -->
+                        <button class="btn btn-outline-success dropbtn" type="dropdown" id="dropbtn" onclick="myFunction()">Bookshelf</button>
+                          <div id="myDropdown" class="dropdown-content">
+                            <a href="#toread">To Read</a>
+                            <a href="#currentlyreading">Currently Reading</a>
+                            <a href="#previouslyread">Previously Read</a>
+                          </div>
+                        </div>
             </div>
 
             <!----------------SECOND COLUMN ---------------->
+<<<<<<< HEAD
+            <div class="col-xs-5 col-md-7 col-lg-9" id="mainSecondCol">
+                    <center>
+                    <p id="bookMatchTextOne">Not sure what to read?</p>
+                    <p id="bookMatchTextTwo"><a href="bookrec.html" id="bookMatchLink">Take our quiz here to find the perfect book for you! </a></center>
+                </p>
+                <div id="searchBtnDiv" class="text-center">
+                    <input class="form-control" id="title" type="search" placeholder="Find a book!" aria-label="Search">
+                    <button class="btn btn-outline-success " type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
+                </div>
+
+                <hr>
+                <!--Search Results will be dumped in the section below-->
+                <div class="col" id="book-search"></div>
+
+                <!-- THIS IS THE DIV CONTAINER FEEDING THE LIVE FEED -->
+                LIVE FEED HERE
+                <div class="col" id="blog-container"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+=======
             <div class="col-xs-5 col-md-7 col-lg-9 vcenter" id="mainSecondCol">
 
                 <a href="bookrec.html" id="bookMatchLink">
@@ -130,47 +166,15 @@
 
             </div>
         </div>
+>>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
 
+    <div class="footer">
+        <p> &copy; Copyright 2018 Pamela, Ryan & Stacey </p>
+    </div>
 
-        <div class="footer">
-            <p> &copy; Copyright 2018 Pamela, Ryan & Stacy </p>
-        </div>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cms.js"></script>
 
-        <script src="assets/js/main.js"></script>
-
-        <!-- <script>
-    function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    var userInfo = {
-        profile_pic: profile.getImageUrl(),
-        user_name: profile.getName(),
-        email: profile.getEmail(),
-    }
-    //console.log(googleUser);
-    $(".welcome").css("display", "none");
-    $(".booksBG").css("display", "none");
-    $("#data").css("display", "block");
-    $("#pic").attr('src', profile.getImageUrl());
-    $("#name").text(profile.getName());
-    $("#email").text(profile.getEmail());
-    $.ajax({url: "/api/users", method: "POST", data: userInfo, success: function(result){
-    $(console.log(result));
-    }
-});
-    // The ID token you need to pass to your backend:
-var id_token = googleUser.getAuthResponse().id_token;
-// console.log("ID Token: " + id_token);
-};
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-        alert("You have been successfully signed out");
-        $(".welcome").css("display", "block");
-        $("#data").css("display", "none");
-    });
-}
-    </script> -->
 </body>
 
 </html>

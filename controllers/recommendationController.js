@@ -32,30 +32,28 @@ router.get("/book", function(req, res) {
   })
 });
 
-// POSTS books into database
-router.post("/api/books", function(req, res) {
-  console.log("Look here!", req.user);
-  db.Books.create({
+// POSTS comments into database
+router.post("/api/comments", function(req, res) {
+  console.log("Comment here!", req.user);
+  db.Recommendations.create({
     email : req.body.email,
     user: req.body.user,
     title: req.body.title,
     author: req.body.author,
-    genre: req.body.genre,
-    copyright_date: req.body.copyright_date,
-    ISBN: req.body.ISBN,
     cover_art_url: req.body.cover_art_url,
-    synopsis: req.body.synopsis,
     status: req.body.status,
+    rating: req.body.rating,
+    comment: req.body.comment
   }).then(function(result){
     console.log(result)
   })
 });
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  recommendations.all(function(data) {
+router.get("/recommendations", function(req, res) {
+    Recommendations.all(function(data) {
     var hbsObject = {
-      recommendations: data
+      Recommendations: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
