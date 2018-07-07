@@ -11,6 +11,10 @@ It includes all of the following capabilities for a user:
 
 ![Screenshot](./public/assets/images/LiteratiMoneyShot.PNG)
 
+# APIs employed:
+- **Google Sign-In** for web applications: manages the OAuth flow and token lifecycle, simplifying integration with Google APIs.  [Dev Docs](https://developers.google.com/identity/sign-in/web/sign-in)
+- **Google Books** seeks to make book content more discoverable on the web by providing search and retrieval capabilities, as well as personal bookshelf manageability.  [Dev Docs](https://developers.google.com/books/ "Dev Docs")
+
 # Technologies utilized:
 - Node.js
 - Javascript/jQuery
@@ -24,9 +28,6 @@ It includes all of the following capabilities for a user:
  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
  ![](http://docs.sequelizejs.com/manual/asset/logo-small.png)
 
-# APIs employed:
-- **Google Sign-In** for web applications: manages the OAuth flow and token lifecycle, simplifying integration with Google APIs.  [Dev Docs](https://developers.google.com/identity/sign-in/web/sign-in)
-- **Google Books** seeks to make book content more discoverable on the web by providing search and retrieval capabilities, as well as personal bookshelf manageability.  [Dev Docs](https://developers.google.com/books/ "Dev Docs")
 
 # Node packages included:
 - Express
