@@ -20,7 +20,7 @@ It includes all of the following capabilities for a user:
  ![](http://williamavasquez.herokuapp.com/img/node.png)
  ![](http://williamavasquez.herokuapp.com/img/mysql.png)
  ![](https://github.com/heroku/favicon/blob/master/favicon.iconset/icon_32x32.png)
- ![](https://seeklogo.com/images/S/sequelize-logo-9A5075DB9F-seeklogo.com.png)
+ ![](http://docs.sequelizejs.com/manual/asset/logo-small.png)
 
 # APIs employed:
 - **Google Sign-In** for web applications: manages the OAuth flow and token lifecycle, simplifying integration with Google APIs.  [Dev Docs](https://developers.google.com/identity/sign-in/web/sign-in)
