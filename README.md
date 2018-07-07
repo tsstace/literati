@@ -3,6 +3,7 @@ Welcome to the coziest corner of the world wide web:  __*Literati*__.  This full
 
 __*Literati*__ includes all of the following capabilities for a user:  
 * brainstorm about the books they would like to read with a robust search feature that harnesses the **Google Books API**
+* the ability to sign in using their Google credentials, courtesy of the **Google Sign-In API**
 * pose questions and engage in discussions with other users about a book
 * create a virtual bookshelf to track their selections and progress
 * a quiz to recommend targeted titles based on interests and personality traits  
