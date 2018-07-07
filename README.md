@@ -19,7 +19,7 @@ It includes all of the following capabilities for a user:
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  ![](http://williamavasquez.herokuapp.com/img/node.png)
  ![](http://williamavasquez.herokuapp.com/img/mysql.png)
- ![](https://cdn-images-1.medium.com/max/1600/1*QOJ6mj1vtM3gwY_sdzzZuw.png)
+ ![](http://avanxo.com/wp-content/uploads/2016/12/Heroku-1-768x324.png)
 
 # APIs employed:
 - **Google Sign-In** for web applications: manages the OAuth flow and token lifecycle, simplifying integration with Google APIs.  [Dev Docs](https://developers.google.com/identity/sign-in/web/sign-in)
