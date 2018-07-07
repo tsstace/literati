@@ -116,3 +116,160 @@ body {
       padding-left:16px;
       margin-bottom:16px;
     }
+    .navbar {
+      background-color: #800000;
+      font-family: 'PT Serif', serif;
+      min-height: 10px;
+      width: 100%;
+      padding: 0;
+  }
+  
+  .navbar .navbar-brand {
+      color: #ffffff;
+  }
+  
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-brand:focus {
+      color: #c26a5f;
+  }
+  
+  .navbar .navbar-text {
+      color: #ffffff;
+  }
+  
+  .navbar .navbar-text a {
+      color: #c26a5f;
+  }
+  
+  .navbar .navbar-text a:hover,
+  .navbar .navbar-text a:focus {
+      color: #c26a5f;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+      color: #ffffff;
+      border-radius: .25rem;
+      margin: 0 0.25em;
+  }
+  
+  .navbar .navbar-nav .nav-link:not(.disabled):hover,
+  .navbar .navbar-nav .nav-link:not(.disabled):focus {
+      color: #c26a5f;
+  }
+  
+  .navbar .navbar-nav .nav-item.active .nav-link,
+  .navbar .navbar-nav .nav-item.active .nav-link:hover,
+  .navbar .navbar-nav .nav-item.active .nav-link:focus,
+  .navbar .navbar-nav .nav-item.show .nav-link,
+  .navbar .navbar-nav .nav-item.show .nav-link:hover,
+  .navbar .navbar-nav .nav-item.show .nav-link:focus {
+      color: #c26a5f;
+      background-color: #ffffff;
+  }
+  
+  .navbar .navbar-toggle {
+      border-color: #ffffff;
+  }
+  
+  .navbar .navbar-toggle:hover,
+  .navbar .navbar-toggle:focus {
+      background-color: #ffffff;
+  }
+  
+  .navbar .navbar-toggle .navbar-toggler-icon {
+      color: #ffffff;
+  }
+  
+  .navbar .navbar-collapse,
+  .navbar .navbar-form {
+      border-color: #ffffff;
+  }
+  
+  .navbar .navbar-link {
+      color: #ffffff;
+  }
+  
+  .navbar .navbar-link:hover {
+      color: #c26a5f;
+  }
+  
+  @media (max-width: 575px) {
+      .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #ffffff;
+      }
+      .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+      .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #c26a5f;
+      }
+      .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #c26a5f;
+          background-color: #ffffff;
+      }
+  }
+  
+  @media (max-width: 767px) {
+      .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #ffffff;
+      }
+      .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+      .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #c26a5f;
+      }
+      .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #c26a5f;
+          background-color: #ffffff;
+      }
+  }
+  
+  @media (max-width: 991px) {
+      .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #ffffff;
+      }
+      .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+      .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #c26a5f;
+      }
+      .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #c26a5f;
+          background-color: #ffffff;
+      }
+  }
+  
+  @media (max-width: 1199px) {
+      .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #ffffff;
+      }
+      .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+      .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #c26a5f;
+      }
+      .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #c26a5f;
+          background-color: #ffffff;
+      }
+  }
+  
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+      color: #ffffff;
+  }
+  
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+      color: #c26a5f;
+  }
+  
+  .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+      color: #c26a5f;
+      background-color: #ffffff;
+  }
+  
+  .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #000000;
+      color: #fff;
+      text-align: center;
+      font-family: 'PT Serif', serif;
+  }
