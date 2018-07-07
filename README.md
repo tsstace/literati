@@ -1,4 +1,4 @@
-# :books: ~Literati~ :notebook:
+# :books: *Literati* :notebook:
 
 # Technologies utilized:
 - Node.js
