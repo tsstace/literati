@@ -1,5 +1,13 @@
 # :books: *Literati* :notebook:
-Welcome to the coziest corner of the world wide web:  __*Literati*__  This full stack web application allows users to:  brainstorm about the books they would like to read with a robust search feature, pose questions and engage in discussions with other users about a title, create a virtual bookshelf to track their interests and progress, as well as a quiz to recommend targeted titles based on interests and personality traits.  It could even be utilized to facilitate an online book club!   
+Welcome to the coziest corner of the world wide web:  __*Literati*__.  This full stack web application allows users to
+
+It includes all of the following functionality:  
+* brainstorm about the books they would like to read with a robust search feature 
+* pose questions and engage in discussions with other users about a title 
+* create a virtual bookshelf to track their interests and progress
+* a quiz to recommend targeted titles based on interests and personality traits  
+* facilitate an online book club
+* share their reading list on social media
 
 # Technologies utilized:
 - Node.js
