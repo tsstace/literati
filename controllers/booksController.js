@@ -45,28 +45,7 @@ router.post("/api/books", function(req, res) {
     ISBN: req.body.ISBN,
     cover_art_url: req.body.cover_art_url,
     synopsis: req.body.synopsis,
-<<<<<<< HEAD
     status: req.body.status,
-=======
-    status: req.body.status
-  }).then(function(result){
-    console.log(result)
-  })
-});
-
-// POSTS comments into database
-router.post("/api/comments", function(req, res) {
-  console.log("Comment here!", req.user);
-  db.recommendations.create({
-    email : req.body.email,
-    user: req.body.user,
-    title: req.body.title,
-    author: req.body.author,
-    cover_art_url: req.body.cover_art_url,
-    status: req.body.status,
-    rating: req.body.rating,
-    comment: req.body.comment
->>>>>>> fae4f9bf04b6bb97a8e9ff4fde0da57f3cb25d7b
   }).then(function(result){
     console.log(result)
   })
