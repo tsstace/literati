@@ -35,6 +35,7 @@ router.get("/book", function(req, res) {
 // POSTS comments into database
 router.post("/api/comments", function(req, res) {
   console.log("Comment here!", req.user);
+  console.log(db)
   db.Recommendations.create({
     email : req.body.email,
     user: req.body.user,

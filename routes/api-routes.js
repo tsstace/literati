@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // GET route for getting all of the comments
   app.get("/api/comments", function(req, res) {
-    db.recommendations.findAll({})
+    db.Recommendations.findAll({})
       .then(function(dbComment) {
         res.json(dbComment);
       });
@@ -22,7 +22,7 @@ module.exports = function(app) {
 
   //Get route for returning comments of a specific book
   app.get("/api/comments/book/:title", function(req, res) {
-    db.recommendations.findAll({
+    db.Recommendations.findAll({
       where: {
         title: req.params.title
       }
@@ -34,7 +34,7 @@ module.exports = function(app) {
 
   // Get route for retrieving a single comment
   app.get("/api/comments/:id", function(req, res) {
-    db.recommendations.findOne({
+    db.Recommendations.findOne({
       where: {
         id: req.params.id
       }
@@ -47,7 +47,7 @@ module.exports = function(app) {
   // POST route for saving a new comment
   app.post("/api/comments", function(req, res) {
     console.log(req.body);
-    db.recommendations.create({
+    db.Recommendations.create({
       user: req.body.user,
       email: req.body.email,
       title: req.body.title,
@@ -64,7 +64,7 @@ module.exports = function(app) {
 
   // DELETE route for deleting comments
   app.delete("/api/comments/:id", function(req, res) {
-    db.recommendations.destroy({
+    db.Recommendations.destroy({
       where: {
         id: req.params.id
       }
@@ -77,7 +77,7 @@ module.exports = function(app) {
   // PUT route for updating comments
   app.put("/api/comments", function(req, res) {
     console.log(req.body);
-    db.recommendations.update(req.body,
+    db.Recommendations.update(req.body,
       {
         where: {
           id: req.body.id
