@@ -10,6 +10,7 @@ body {
     left: 0;
     color: #000000;
     font-family: 'PT Serif', serif;
+    padding-top: 70px;
 
 }
 
@@ -17,21 +18,21 @@ body {
     font-family: 'IM Fell English SC', serif;
 }
 
+#bookMatchTextOne {
+    font-family: 'IM Fell English SC', serif;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+#bookMatchTextTwo {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 #logo {
     width: 50px;
     height: auto;
 }
-
-/* .row {
-    padding-left: 20px;
-    padding-right: 20px;
-  } */
-
-/* .vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-} */
 
 .pageName {
     color: #fff;
@@ -83,14 +84,17 @@ body {
     box-shadow: 1px 1px 1px grey;
     border: thin solid #888;
     border-radius: 5px;
-    color: #444;
-    background: white;
-    white-space: nowrap;
+    color: #000000;
+    background: green;
+    width: 20%;
+    height: 3rem;
+    margin-left: 1em;
+    letter-spacing: 0.25rem;
 }
 
 #bookBarSearchBtn:hover {
     cursor: pointer;
-    background: green;
+    background: rgb(86, 158, 86);;
 }
 
 #data {
@@ -102,33 +106,54 @@ body {
 }
 
 #title {
-    width: 80% !important;
+    width: 50% !important;
+    text-align: center;
+}
+
+#searchBtnDiv {
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #profile {
     background-color: rgba(255,255,255, 0.4);
-    /* position: fixed; */
+    position: fixed;
     width: 144%;
     display: table;
     padding: 1em;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-left: 2em;
+}
+
+#profileText {
+    font-weight: bold;
+    text-align: center;
 }
 
 #pic {
     border-radius: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #mainSecondCol {
-    float: left;
-    /* width: 66%; */
-    /* padding-left: 100px;
-    padding-right: 20px; */
+    margin-left: 15em;
   }
 
 #bookMatchLink:hover {
     cursor: pointer;
     color: #c26a5f;
+}
+
+.star-rating {
+    line-height:32px;
+    font-size:1.25em;
+}
+  
+.star-rating .fa-star{
+    color: yellow;
 }
 
 /* --------------- THIS IS FOR THE GOOGLE SIGN IN BUTTON ---------------- */
@@ -176,7 +201,7 @@ span.buttonText {
     font-family: 'PT Serif', serif;
     min-height: 10px;
     width: 100%;
-    /* position:auto; */
+    padding: 0;
 }
 
 .navbar .navbar-brand {
@@ -328,3 +353,50 @@ span.buttonText {
     text-align: center;
     font-family: 'PT Serif', serif;
 }
+
+/* ----- BOOKSHELF BUTTON ---- */
+.dropbtn {
+    background-color: rgb(212,175,55);
+    color: #000000;
+    padding: 5px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 100;
+    letter-spacing: 0.25rem;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgb(238, 206, 102);
+    color: #000000;
+    box-shadow: 1px 1px 1px grey;
+    border-color:  rgb(238, 206, 102);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
