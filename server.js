@@ -19,11 +19,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+=======
+// Sequelize require db models
+var db = require("./models");
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/booksController.js");
@@ -35,7 +37,7 @@ require("./routes/api-routes")(app);
 app.use(routes);
 
 //Sync sequelize
-db.sequelize.sync({ force: true }).then(function(){
+db.sequelize.sync({ force: false }).then(function(){
     app.listen(PORT, function(){
         console.log("Listening on port %s", PORT);
     });

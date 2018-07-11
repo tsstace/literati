@@ -9,7 +9,25 @@ var db = require("../models");
 //Stash API key here...
 require("dotenv")
 
+<<<<<<< HEAD
 //Create a method for grabbing books from a googlebooks API by title 
+=======
+//Create a method for pushing user info into database
+router.post("/api/users", function(req, res) {
+    //console.log("Req.body here=====>", req.body);
+    db.User.create({
+      profile_pic : req.body.profile_pic, 
+      user_name : req.body.user_name,
+      email : req.body.email
+    }).then(function(result){
+      res.json(result)
+    }).catch(function(result){
+      res.json(result)
+  })
+});
+
+//Create a method for grabbing books from a google API by title 
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
 var request = require("request");
 
 router.get("/book", function(req, res) {
@@ -20,7 +38,11 @@ router.get("/book", function(req, res) {
 
 // POSTS comments into database
 router.post("/api/comments", function(req, res) {
+<<<<<<< HEAD
 
+=======
+  console.log("Comment here!", req.user);
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
   db.Recommendations.create({
     email : req.body.email,
     user: req.body.user,
@@ -31,6 +53,7 @@ router.post("/api/comments", function(req, res) {
     rating: req.body.rating,
     comment: req.body.comment
   }).then(function(result){
+<<<<<<< HEAD
     console.log(res.json(result))
     
   })
@@ -43,6 +66,21 @@ router.post("/api/comments", function(req, res) {
 // Read all our routes and set up logic within those routes where required.
 router.get("/api/recommendations", function(req, res) {
     
+=======
+    console.log(result)
+  })
+});
+
+// Create all our routes and set up logic within those routes where required.
+router.get("/recommendations", function(req, res) {
+    Recommendations.all(function(data) {
+    var hbsObject = {
+      Recommendations: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
 });
 
 

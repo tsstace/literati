@@ -14,7 +14,11 @@ module.exports = function(app) {
 
   // GET route for getting all of the comments
   app.get("/api/comments", function(req, res) {
+<<<<<<< HEAD
     db.Recommendations.findAll({})
+=======
+    db.recommendations.findAll({})
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
       .then(function(dbComment) {
         res.json(dbComment);
       });
@@ -22,7 +26,11 @@ module.exports = function(app) {
 
   //Get route for returning comments of a specific book
   app.get("/api/comments/book/:title", function(req, res) {
+<<<<<<< HEAD
     db.Recommendations.findAll({
+=======
+    db.recommendations.findAll({
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
       where: {
         title: req.params.title
       }
@@ -34,7 +42,11 @@ module.exports = function(app) {
 
   // Get route for retrieving a single comment
   app.get("/api/comments/:id", function(req, res) {
+<<<<<<< HEAD
     db.Recommendations.findOne({
+=======
+    db.recommendations.findOne({
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
       where: {
         id: req.params.id
       }
@@ -47,7 +59,11 @@ module.exports = function(app) {
   // POST route for saving a new comment
   app.post("/api/comments", function(req, res) {
     console.log(req.body);
+<<<<<<< HEAD
     db.Recommendations.create({
+=======
+    db.recommendations.create({
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
       user: req.body.user,
       email: req.body.email,
       title: req.body.title,
@@ -64,7 +80,11 @@ module.exports = function(app) {
 
   // DELETE route for deleting comments
   app.delete("/api/comments/:id", function(req, res) {
+<<<<<<< HEAD
     db.Recommendations.destroy({
+=======
+    db.recommendations.destroy({
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
       where: {
         id: req.params.id
       }
@@ -77,7 +97,11 @@ module.exports = function(app) {
   // PUT route for updating comments
   app.put("/api/comments", function(req, res) {
     console.log(req.body);
+<<<<<<< HEAD
     db.Recommendations.update(req.body,
+=======
+    db.recommendations.update(req.body,
+>>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
       {
         where: {
           id: req.body.id
