@@ -48,70 +48,6 @@ function findBook() {
   $.get("/book?title=" + title + "&limit=10", function (data) {
     //console.log("DAT YUNG DATA ====>", data)
     $("#book-search").empty();
-<<<<<<< HEAD
-
-    for (var i = 0; i < data.items.length; i++) {
-      /*console.log("Title: " + data.items[i].volumeInfo.title);
-      console.log("Author: " + data.items[i].volumeInfo.authors[0]);
-      console.log("Genre: " + data.items[i].volumeInfo.categories[0]);
-      console.log("Copyright Date: " + data.items[i].volumeInfo.publishedDate);
-      console.log("ISBN: " + data.items[i].volumeInfo.industryIdentifiers[0].identifier);
-      console.log("Cover Art: " + data.items[i].volumeInfo.imageLinks.thumbnail);
-      console.log("Synopsis: " + data.items[i].volumeInfo.description);*/
-
-      //Create a parent div
-      var bookSearch = $('<div>');
-      //Add a class to the div
-      bookSearch.addClass("results");
-      //Add an id for each of the items that will arrive on the list
-      bookSearch.attr("id", "item-" + i);
-
-      console.log("category detector", data)
-      var categories = 'Unknown';
-      if (data.items[i].volumeInfo.categories[0]){
-        categories = data.items[i].volumeInfo.categories[0];
-      }
-
-
-      //Add data- attributes in order to gain access to pertinent book information for db storage
-      bookSearch.attr("data-title", data.items[i].volumeInfo.title);
-      bookSearch.attr("data-author", data.items[i].volumeInfo.authors[0]);
-      bookSearch.attr("data-genre", categories);
-      bookSearch.attr("data-copyright", data.items[i].volumeInfo.publishedDate);
-      bookSearch.attr("data-ISBN", data.items[i].volumeInfo.industryIdentifiers[0].identifier);
-      bookSearch.attr("data-cover", data.items[i].volumeInfo.imageLinks.thumbnail);
-      bookSearch.attr("data-synopsis", data.items[i].volumeInfo.description);
-
-      // make the name an h2,
-      bookSearch.append("<h2>" + data.items[i].volumeInfo.title + "</h2>");
-
-      // the author an h3,
-      bookSearch.append("<h3>Author: " + data.items[i].volumeInfo.authors[0] + "</h3>");
-
-      //the cover art an img tag
-      bookSearch.append("<img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " alt='cover art' height='200' width='200'>");
-
-      // the genre an h3,
-      bookSearch.append("<h4>Genre: " + data.items[i].volumeInfo.categories[0] + "</h4>");
-
-      //the copyright date an h3
-      bookSearch.append("<h4>Published Date: " + data.items[i].volumeInfo.publishedDate + "</h4>");
-
-      // the synopsis an h5,
-      bookSearch.append("<h6>Synopsis: " + data.items[i].volumeInfo.description + "</h6>");
-
-      //A recommend button
-      bookSearch.append($recommendation);
-
-      //A shelf button
-      bookSearch.append($shelfBook);
-
-      //Append the search results to the search-results section
-      $("#book-search").append(bookSearch)
-
-    }
-
-=======
 
     for (var i = 0; i < data.items.length; i++) {
       /*console.log("Title: " + data.items[i].volumeInfo.title);
@@ -167,7 +103,6 @@ function findBook() {
 
     }
 
->>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
   });
 }
 
@@ -293,68 +228,6 @@ $(document).ready(function () {
 });
 
 
-<<<<<<< HEAD
-//--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
-$(document).ready(function() {
-
-  function recommendBook() {
-
-    //Create an object variable for all of the info that we want to insert into the recommendation table
-    var email=$("#email").text();
-    console.log(email);
-    var user=$("#name").text();
-    var rating = $("#rating input:checked").val();
-    var comment = $("#commentBody").val().trim();
-
-    var commentInfo = {
-      title: $(this).closest('.results').attr("data-title"),
-      author: $(this).closest('.results').attr("data-author"),
-      genre: $(this).closest('.results').attr("data-genre"),
-      cover_art_url: $(this).closest('.results').attr("data-cover"),
-      copyright_date: $(this).closest('.results').attr("data-copyright"),
-      ISBN: $(this).closest('.results').attr("data-ISBN"),
-      synopsis: $(this).closest('.results').attr("data-synopsis"),
-      email: email,
-      user: user,
-      rating: rating,
-      comment: comment
-    }
-
-    console.log(commentInfo);
-    $.ajax ({
-      type: "POST",
-      url: "/api/comments",
-      data: commentInfo,
-      success: function(result){
-        console.log("Successful recommendation!", result)
-      },
-      error: function(data){
-        console.log("fail", data)
-      }
-      
-    });
-
-
-  //   $.ajax({url: "/api/comments", method: "POST", data: commentInfo, success: function(result){
-  //     $(console.log("Successful recommendation added!", result));
-  //   }
-  // });
-}
-
-  $('body').on('click', '.recommend-book', recommendBook);
-});
-
-//------------------ When the user clicks on the bookshelf button ------------------// 
-//------------ toggle between hiding and showing the dropdown content ------------------//
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-
-=======
 // //--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
 // $(document).ready(function() {
 
@@ -399,7 +272,6 @@ function myFunction() {
 window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
 
->>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -409,8 +281,4 @@ window.onclick = function (event) {
       }
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a9bebc211cb6b181bf51fd4c0e18acf2177dd450
