@@ -63,7 +63,7 @@ router.get("/", function(req, res) {
       recommendations: data
     };
     console.log("Look here, dude!", hbsObject);
-    res.render("index", hbsObject);
+    res.render("recommendations", hbsObject);
   });
 });
 
