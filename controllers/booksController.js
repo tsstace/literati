@@ -32,6 +32,9 @@ router.get("/book", function(req, res) {
   })
 });
 
+
+//Route to get all of the books from the recommendations table for the feed
+
 // POSTS books into database
 router.post("/api/books", function(req, res) {
   console.log("Look here!", req.user);
@@ -53,11 +56,13 @@ router.post("/api/books", function(req, res) {
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  recommendations.all(function(data) {
+  console.log(req.recommendations);
+  db.Recommendations.findAll({})
+  .then((data)=> {
     var hbsObject = {
       recommendations: data
     };
-    console.log(hbsObject);
+    console.log("Look here, dude!", hbsObject);
     res.render("index", hbsObject);
   });
 });

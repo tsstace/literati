@@ -1,7 +1,7 @@
 //--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
 //PUSHES RECOMMENDATION AND SELECTED BOOK TO DATABASE 
 
-$(document).ready(function() {
+/*$(document).ready(function() {
 
   function recommendBook() {
 
@@ -138,4 +138,4 @@ $(document).ready(function() {
     blogContainer.append(messageH2);
   }
 
-});
+});*/

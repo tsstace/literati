@@ -1,0 +1,27 @@
+<ul>
+    
+    {{#each recommendations}}
+    
+                <li>
+                {{this.id}}
+                {{this.user}}
+                <p>recommends</p>
+                {{this.title}}
+                <p>by</p>
+                {{this.author}}
+                <img src="{{this.cover_art_url}}">
+                <p>Rating (out of 5)</p>
+                {{this.rating}}
+                {{this.comment}}
+                    <form action="api/comments/update?_method=POST" method="POST">
+                        <input type="hidden" name="recommendation_id" value={{this.id}}>
+                        <button type="submit">Add Comment</button>
+                    </form>
+                    <form action="api/comments/{{this.id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="deleted" value="true">
+                        <button type="submit">Delete Comment</button>
+                    </form>
+                </li>
+        
+    {{/each}}
+</ul>

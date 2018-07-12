@@ -12,11 +12,11 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the comments
-  app.get("/api/comments", function(req, res) {
+  // GET route for getting all of the recommendations
+  app.get("/api/recommendations", function(req, res) {
     db.Recommendations.findAll({})
-      .then(function(dbComment) {
-        res.json(dbComment);
+      .then(function(dbRecs) {
+        res.json(dbRecs);
       });
   });
 
@@ -44,8 +44,8 @@ module.exports = function(app) {
       });
   });
 
-  // POST route for saving a new comment
-  app.post("/api/comments", function(req, res) {
+  // POST route for saving a new recommendation
+  app.post("/api/recommendation", function(req, res) {
     console.log(req.body);
     db.Recommendations.create({
       user: req.body.user,
@@ -57,8 +57,8 @@ module.exports = function(app) {
       rating: req.body.rating,
       comment: req.body.comment,
     })
-      .then(function(dbComment) {
-        res.json(dbComment);
+      .then(function(dbRecommendations) {
+        res.json(dbRecommendations);
       });
   });
 

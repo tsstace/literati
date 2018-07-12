@@ -231,6 +231,18 @@ $(document).ready(function () {
 //--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
 $(document).ready(function() {
 
+  /*<script type="text/javascript">
+    // Example queryURL for Giphy API
+    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=cYspV105zCuhSY2GlSUP66RGIjGSLURD";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+  </script>*/
+  
   function recommendBook() {
 
     //Create an object variable for all of the info that we want to insert into the recommendation table
