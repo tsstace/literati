@@ -43,10 +43,10 @@ module.exports = function(app) {
         res.json(dbComment);
       });
   });
-
+  //recommendations
   // POST route for saving a new recommendation
-  app.post("/api/recommendation", function(req, res) {
-    console.log(req.body);
+  app.post("/api/recommendations", function(req, res) {
+    console.log("Body", req.body);
     db.Recommendations.create({
       user: req.body.user,
       email: req.body.email,

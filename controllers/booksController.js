@@ -34,6 +34,22 @@ router.get("/book", function(req, res) {
 
 
 //Route to get all of the books from the recommendations table for the feed
+router.post("/api/recommendations", function(req, res) {
+  console.log("Body", req.body);
+  db.Recommendations.create({
+    user: req.body.user,
+    email: req.body.email,
+    title: req.body.title,
+    author: req.body.author,
+    ISBN: req.body.ISBN,
+    cover_art_url: req.body.cover_art_url,
+    rating: req.body.rating,
+    comment: req.body.comment,
+  })
+    .then(function(dbRecommendations) {
+      res.json(dbRecommendations);
+    });
+});
 
 // POSTS books into database
 router.post("/api/books", function(req, res) {
