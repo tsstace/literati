@@ -259,7 +259,7 @@ $(document).ready(function () {
 
 function redirect()
     {
-    window.location2="/";
+    window.location="/";
 
     $.ajax({url: "/api/recommendations", 
     method: "GET", 
