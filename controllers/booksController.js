@@ -51,6 +51,13 @@ router.post("/api/recommendations", function(req, res) {
     });
 });
 
+router.get("/api/recommendations", function(req, res) {
+  db.Recommendations.findAll({})
+    .then(function(dbRecs) {
+      res.render("recommendations");
+    });
+});
+
 // POSTS books into database
 router.post("/api/books", function(req, res) {
   console.log("Look here!", req.user);

@@ -78,7 +78,7 @@ function findBook() {
       bookSearch.append("<h2>" + data.items[i].volumeInfo.title + "</h2>");
 
       // the author an h3,
-      bookSearch.append("<h3>Author: " + data.items[i].volumeInfo.authors[0] + "</h3>");
+      bookSearch.append("<h3>By: " + data.items[i].volumeInfo.authors[0] + "</h3>");
 
       //the cover art an img tag
       bookSearch.append("<img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " alt='cover art' height='200' width='200'>");
@@ -87,7 +87,7 @@ function findBook() {
       bookSearch.append("<h4>Genre: " + data.items[i].volumeInfo.categories[0] + "</h4>");
 
       //the copyright date an h3
-      bookSearch.append("<h4>Genre: " + data.items[i].volumeInfo.publishedDate + "</h4>");
+      bookSearch.append("<h4>Published: " + data.items[i].volumeInfo.publishedDate + "</h4>");
 
       // the synopsis an h5,
       bookSearch.append("<h6>Synopsis: " + data.items[i].volumeInfo.description + "</h6>");
@@ -152,8 +152,8 @@ var $recommendation = `<!-- Button trigger modal -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary recommend-book">Save changes</button>
-              </div>
+                <button type="button" class="btn btn-primary recommend-book" onClick="redirect()">Save changes</button>
+              </div> 
             </div>
           </div>
         </div>`;
@@ -189,7 +189,7 @@ var $shelfBook = `<!-- Button trigger modal -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary shelf-button">Save changes</button>
+                <button type="button" class="btn btn-primary shelf-button" onClick="redirect()">Save changes</button>
               </div>
             </div>
           </div>
@@ -257,6 +257,17 @@ $(document).ready(function () {
   $('body').on('click', '.recommend-book', recommendBook);
 });
 
+function redirect()
+    {
+    // window.location2="/";
+
+    $.ajax({url: "/api/recommendations", 
+    method: "GET", 
+    success: function(result)
+    {
+      $(console.log("Getting recommendations from database to display!", result));
+    }});
+    }
 
 //--------------------------- THIS IS FOR THE RECOMMENDATION FUNCTION---------------------------------//
 // $(document).ready(function() {

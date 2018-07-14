@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 
@@ -66,7 +67,7 @@
                 <!-- <ul class="navbar-nav navbar-right"> -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="#">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Books</a>
@@ -76,9 +77,9 @@
                             Bookshelf Link
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">To Read</a>
+                            <a class="dropdown-item" href="#">Currently Reading</a>
+                            <a class="dropdown-item" href="#">Previously Read</a>
                         </div>
                     </li>
                     <li class="nav-item ">
@@ -91,7 +92,7 @@
         </nav>
 
 
-        <div class="row">
+        <div class="row" id="profileBox">
             <div class="col-xs-5 col-md-3 col-lg-1 vcenter" id="profile">
                 <img id="pic" />
                 <div id="profileText">
@@ -100,41 +101,44 @@
                 </div>
 
                 <div class="dropdown">
-                        <!-- <button onclick="myFunction()" class="dropbtn">bookshelf</button> -->
-                        <button class="btn btn-outline-success dropbtn" type="dropdown" id="dropbtn" onclick="myFunction()">Bookshelf</button>
-                          <div id="myDropdown" class="dropdown-content">
-                            <a href="#toread">To Read</a>
-                            <a href="#currentlyreading">Currently Reading</a>
-                            <a href="#previouslyread">Previously Read</a>
-                          </div>
-                        </div>
+                    <!-- <button onclick="myFunction()" class="dropbtn">bookshelf</button> -->
+                    <button class="btn btn-outline-success dropbtn" type="dropdown" id="dropbtn" onclick="myFunction()">Bookshelf</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#toread">To Read</a>
+                        <a href="#currentlyreading">Currently Reading</a>
+                        <a href="#previouslyread">Previously Read</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!----------------SECOND COLUMN ---------------->
+        <div class="col-xs-5 col-md-7 col-lg-9" id="mainSecondCol">
+            <center>
+                <p id="bookMatchTextOne">Not sure what to read?</p>
+                <p id="bookMatchTextTwo">
+                    <a href="bookrec.html" id="bookMatchLink">Take our quiz here to find the perfect book for you! </a>
+            </center>
+            </p>
+            <div id="searchBtnDiv" class="text-center">
+                <input class="form-control" id="title" type="search" placeholder="Find a book!" aria-label="Search">
+                <button class="btn btn-outline-success " type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
             </div>
 
-            <!----------------SECOND COLUMN ---------------->
-            <div class="col-xs-5 col-md-7 col-lg-9" id="mainSecondCol">
-                    <center>
-                    <p id="bookMatchTextOne">Not sure what to read?</p>
-                    <p id="bookMatchTextTwo"><a href="bookrec.html" id="bookMatchLink">Take our quiz here to find the perfect book for you! </a></center>
-                </p>
-                <div id="searchBtnDiv" class="text-center">
-                    <input class="form-control" id="title" type="search" placeholder="Find a book!" aria-label="Search">
-                    <button class="btn btn-outline-success " type="submit" id="bookBarSearchBtn" onclick="findBook()">Search</button>
-                </div>
+            <hr>
+            <!--Search Results will be dumped in the section below-->
+            <div class="col" id="book-search"></div>
 
-                <hr>
-                <!--Search Results will be dumped in the section below-->
-                <div class="col" id="book-search"></div>
+            <!-- THIS IS THE DIV CONTAINER FEEDING THE LIVE FEED -->
 
-                <!-- THIS IS THE DIV CONTAINER FEEDING THE LIVE FEED -->
-                
-                <div class="col" id="blog-container">
-                    {{{body}}}
-                </div>
-
+            <div class="col" id="blog-container">
+                {{{body}}}
             </div>
 
         </div>
+
     </div>
+   
 
 
 

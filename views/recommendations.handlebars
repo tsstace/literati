@@ -1,27 +1,60 @@
 <ul>
-    
+
     {{#each recommendations}}
-    
-                <li>
-                {{this.id}}
-                {{this.user}}
-                <p>recommends</p>
-                {{this.title}}
-                <p>by</p>
-                {{this.author}}
-                <img src="{{this.cover_art_url}}">
-                <p>Rating (out of 5)</p>
-                {{this.rating}}
-                {{this.comment}}
+
+    <li>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <img src="{{this.cover_art_url}}" style="float: left;" id="bookCover">
+                    <span id = "bookName"> {{this.title}} </span>
+                    <p id="authorName">by {{this.author}}</p>
+                    <p id="userRating"> {{this.user}} rates it a {{this.rating}} out of 5 </p>
+                    <p>{{this.comment}}</p>
+                </div>
+
+                <div class="col-auto mr-auto">
                     <form action="api/comments/update?_method=POST" method="POST">
                         <input type="hidden" name="recommendation_id" value={{this.id}}>
-                        <button type="submit">Add Comment</button>
+                        <button class="commentButtons" type="submit">Add Comment</button>
                     </form>
                     <form action="api/comments/{{this.id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="deleted" value="true">
-                        <button type="submit">Delete Comment</button>
+                        <button class="commentButtons" type="submit">Delete Comment</button>
                     </form>
-                </li>
-        
-    {{/each}}
+                </div>
+            </div>
+        </div>
+    </li>
+    <br> {{/each}}
+
+    <style>
+        #bookCover {
+            padding-right: 1em;
+        }
+        li {
+            list-style:none;
+        }
+        #bookName {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        #authorName {
+            font-size: 16px;
+        }
+        #userRating {
+            font-weight: bold;
+            color: #c45500!important;
+        }
+        .commentButtons {
+            border-radius: 5px;
+            width: 15rem;
+            margin: 0.25em;
+        }
+        .commentButtons:hover {
+             background-color: #aaaaaa;
+             border-color: #aaaaaa;
+             cursor: pointer;
+        }
+    </style>
 </ul>

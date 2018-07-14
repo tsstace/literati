@@ -12,18 +12,8 @@ module.exports = function(app) {
 
   // index route loads landing-page.html as homepage
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/landing-page.html"));
+    res.sendFile(path.join(__dirname, "../views/layouts/main.handlebars"));
   });
-
-   // index route loads landing-page.html as homepage
-   app.get("/bookresults", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/search-results.html"));
-  });
-
-  // index route loads landing-page.html as homepage
-  app.get("/bookmatch", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/bookrec.html"));
-});
   
 
 

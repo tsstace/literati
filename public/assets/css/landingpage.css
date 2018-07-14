@@ -79,6 +79,10 @@ body {
     padding: 100px 0;
 }
 
+#book-search, #blog-container {
+    padding-bottom: 5em;
+}
+
 #bookBarSearchBtn {
     display: inline-block;
     box-shadow: 1px 1px 1px grey;
@@ -142,9 +146,13 @@ body {
     margin-left: 15em;
   }
 
+#bookMatchLink {
+    color: #000000;
+}
+
 #bookMatchLink:hover {
     cursor: pointer;
-    color: #c26a5f;
+    color: blue;
 }
 
 .star-rating {
